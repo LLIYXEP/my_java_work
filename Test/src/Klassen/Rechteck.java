@@ -8,8 +8,8 @@ public class Rechteck {
 	int height;
 	
 	public Rechteck() {
-		this.height = new Random().nextInt(20);
-		this.width = new Random().nextInt(20);
+		this.height = new Random().nextInt(20) + 1;
+		this.width = new Random().nextInt(20) + 1;
 	}
 	
 	
@@ -35,7 +35,7 @@ public class Rechteck {
 	public void setHeight(int height) {
 		this.height = height;
 	}
-
+	
 
 
 	public String toString() {
