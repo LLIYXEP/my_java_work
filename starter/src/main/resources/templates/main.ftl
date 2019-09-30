@@ -1,32 +1,66 @@
-<#import "parts/common.ftl" as c>
-<#import "parts/login.ftl" as l>
+<#import "parts/common.ftl" as c> <@c.page>
 
-<@c.page>
-<div>
-    <@l.logout />
-    <span><a href="/user"">User List</a></span>
+<div class="form-row">
+	<div class="form-group col-md-6">
+		<form method="get" action="/main" class="form-inline">
+			<input type="text" name="filter" class="form-control" value="${filter?ifExists}" placeholder="Search by tag">
+			<button class="btn btn-primary ml-2" type="submit">Search</button>
+		</form>
+	</div>
 </div>
-<div>
-    <form method="post">
-        <input type="text" name="text" placeholder="Введите сообщение" />
-        <input type="text" name="tag" placeholder="Тэг">
-        <input type="hidden" name="_csrf" value="${_csrf.token}" />
-        <button type="submit">Добавить</button>
-    </form>
+
+<a class="btn btn-primary mb-3" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Add new message
+  </a>
+
+<div class="collapse" id="collapseExample">
+	<div class="form-group">
+	<form method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<input class="form-control" type="text" name="text"
+					placeholder="Введите сообщение" />
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="text" name="tag" placeholder="Тэг">
+			</div>
+			<div class="form-group">
+				<div class="custom-file">
+					<input class="form-control" type="file" id="customFile" name="file">
+					<label class="custom-file-label" for="customFile">Choose
+						file</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="hidden" name="_csrf"
+					value="${_csrf.token}" />
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary" type="submit">Добавить</button>
+			</div>
+		</form>
 </div>
-<div>Список сообщений</div>
-<form method="get" action="/main">
-    <input type="text" name="filter" >
-    <button type="submit">Найти</button>
-</form>
+</div>
+
+<div class="card-columns">
 <#list messages as message>
-<div>
-    <b>${message.id}</b>
-    <span>${message.text}</span>
-    <i>${message.tag}</i>
-    <strong>${message.authorName}</strong>
+<div class="card my-3" style="width: 18rem;">
+
+	<#if message.fileName??> 
+		<img class="img card-img-top" src="/img/${message.fileName}"> 
+	</#if>
+
+	<div class="m2">
+		<span>${message.text}</span> 
+		<i>${message.tag}</i>
+	</div>
+	
+	<div class="card-footer text-muted">
+		${message.authorName}
+	</div>
+	
 </div>
-<#else>
-No message
+
+<#else> No message 
 </#list>
+</div>
 </@c.page>

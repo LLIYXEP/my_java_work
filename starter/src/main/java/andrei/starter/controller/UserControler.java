@@ -22,7 +22,7 @@ import andrei.starter.repos.UserRepo;
 
 @Controller
 @RequestMapping("/user")
-//@PreAuthorize("hasAuthority('ADMIN')")
+@PreAuthorize("hasAuthority('ADMIN')") //Dostup toliko dlia Amina
 public class UserControler {
 	@Autowired
 	private UserRepo userRepo;
