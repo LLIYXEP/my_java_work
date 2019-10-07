@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>14</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>56</x>
+      <y>126</y>
+      <w>406</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>PKW
+bg=green
+--
+- hersteller : String
+- model : String
+--
+# PKW (hersteller : String, model : String)
+/+ getModel() : String/
+/+ automatischEinparken() : void/
+/+ toString() : String/
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>546</x>
+      <y>126</y>
+      <w>378</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>LKW
+bg=red
+--
+- hersteller : String
+- model : String
+- last : int
+--
+# LKW (hersteller : String, model : String)
+/+ getModel() : String/
+/+ beladen(last : int) : void/
+/+ toString() : String/
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

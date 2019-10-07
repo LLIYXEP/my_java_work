@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>180</y>
+      <w>340</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>LottoSpiel
+--
+-anzahlKugel : int
+-anzahlKugelGesamt : int
+-zahlen : int[]
+--
+#LottoSpiel(anzahlKugel : int,anzahlKugelGesamt : int)
++ziehen(): void
++toString() : String
++vergliechen(tipp : LottoTipp) : int
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>850</x>
+      <y>180</y>
+      <w>360</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>LottoTipp
+--
+-anzahlKugel : int
+-anzahlKugelGesamt : int
+-zahlen : int[]
+--
+#LottoTipp(anzahlKugel : int,anzahlKugelGesamt : int)
++abgeben() : void
++toString()
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>200</y>
+      <w>300</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Soll Texte nach folgendem Muster generieren:
+Spiel 7 aus 49. [3, 7, 11, 28, 35, 40, 48]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>240</y>
+      <w>130</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>730</x>
+      <y>250</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1320</x>
+      <y>180</y>
+      <w>260</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>toString()
+soll nach dem Muster arbeiten
+Tipp 7 aus 49. [6, 9, 17, 23, 35, 41, 42]
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1200</x>
+      <y>210</y>
+      <w>140</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;70.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>460</y>
+      <w>370</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>RndomNumber
+--
+_+ccreateUniqueRandomArray(length : int, min : int, max : int) : int[]_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>320</y>
+      <w>240</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;140.0;220.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>340</y>
+      <w>240</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>220.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

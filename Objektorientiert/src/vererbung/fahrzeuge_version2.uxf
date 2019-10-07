@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>12</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>108</x>
+      <y>372</y>
+      <w>348</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>PKW
+bg=green
+--
+# PKW (hersteller : String, model : String)
+/+ automatischEinparken() : void/
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>588</x>
+      <y>372</y>
+      <w>324</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>LKW
+bg=red
+--
+- last : int
+--
+# LKW (hersteller : String, model : String)
+/+ beladen(last : int) : void/
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>348</x>
+      <y>84</y>
+      <w>336</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Fahrzeuge
+--
+- hersteller : String
+- model : String
+--
+/+ getModel() : String/
+/+ toString() : String/
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>216</y>
+      <w>192</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>564</x>
+      <y>216</y>
+      <w>180</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>120</x>
+      <y>264</y>
+      <w>168</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>IS-A
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>276</y>
+      <w>108</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>70.0;20.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
