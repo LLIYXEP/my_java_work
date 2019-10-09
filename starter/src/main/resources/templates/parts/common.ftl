@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Sweater</title>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <link rel="stylesheet" href="/static/style.css">
 
 <meta charset="utf-8">
@@ -30,6 +31,10 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+
+		<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer>
+</script>
 </body>
 </body>
 </html>
