@@ -1,19 +1,30 @@
 package klassen;
 
 /*
- * Wenn der GC aktiv wird, sammelt (loscht) er die Objekte auf derm Heap, zu dennen es keine Virbindung vom Stack oder mit statischen Referenzen gibt.
+ * s. Die Datei 'Diagramme/GarbageCollector.pptx' 
  * 
- * - Fur die Prufung: Klassenobjekte bleiben nach dem laden im Arbeitspeicher bis zum ende und werden nicht vom GC geloscht
+ * - Wenn der GC aktiv wird, sammelt (löscht) er die Objekte auf dem Heap, 
+ * zu denen es keine Verbindung vom Stack oder mit statischen Referenzen gibt.
+ * 
+ * - Für die Prüfung: Klassenobjekte bleiben nach dem Laden im Arbeitspeicher 
+ * bis zum Ende und werden nicht vom GC gelöscht 
+ * 
+ * - Es wird nicht versprochen, dass oder wann GC den Sammelvorgang startet.
+ * - Mit System.gc() kann man versuchen den GC anzustoßen (keine Garantie) 
+ * - Vor dem Löschen eines Objektes (wenn es überhaupt dazu kommt) ruft der GC die Methode finalize auf 
  */
 
 public class B12_GarbageCollector {
+
 	public static void main(String[] args) {
-		
-//		Zeile A:  0 Objekte stehen dem GC zu verfugung
+
+		// Zeile A: 0 Objekte stehen dem GC zu Verfügung
 		
 		args = null;
 		
-//		Zeile B:  1 Objekt steht dem GC zu verfugung
+		// Zeile B: 1 Objekte für GC
+		
 		
 	}
+
 }

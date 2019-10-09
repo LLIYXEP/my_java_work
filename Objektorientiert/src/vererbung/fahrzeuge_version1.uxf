@@ -4,44 +4,40 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>56</x>
-      <y>126</y>
-      <w>406</w>
-      <h>224</h>
+      <x>0</x>
+      <y>266</y>
+      <w>434</w>
+      <h>196</h>
     </coordinates>
     <panel_attributes>PKW
-bg=green
 --
 - hersteller : String
-- model : String
+- modell : String
 --
-# PKW (hersteller : String, model : String)
-/+ getModel() : String/
-/+ automatischEinparken() : void/
-/+ toString() : String/
---</panel_attributes>
++ PKW(hersteller : String, modell : String)
++ getModell() : String
++ toString() : String
++ automatischEinparken() : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>546</x>
-      <y>126</y>
-      <w>378</w>
+      <x>504</x>
+      <y>266</y>
+      <w>434</w>
       <h>224</h>
     </coordinates>
     <panel_attributes>LKW
-bg=red
 --
 - hersteller : String
-- model : String
+- modell : String
 - last : int
 --
-# LKW (hersteller : String, model : String)
-/+ getModel() : String/
-/+ beladen(last : int) : void/
-/+ toString() : String/
---</panel_attributes>
++ LKW(hersteller : String, modell : String)
++ getModell() : String
++ toString() : String
++ beladen(last : int) : void</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

@@ -5,12 +5,13 @@ import java.util.Random;
 
 public class Sitzbank {
 	
-	private Kampfer[] data = new Kampfer[8];
+	private Kaempfer[] data = new Kaempfer[8];
 	
-	private int index = 0;  // Die Position in Array data, die frei ist und beim nachsten Aufruf der add-Methode belegt wird
-	
-	public void add(Kampfer k) {
-		if (index == data.length) {
+	private int index = 0; // Die Position im Array data, die frei ist 
+							// und beim nächsten Aufruf der add-Methode belegt wird
+
+	public void add(Kaempfer k) {
+		if(index==data.length) {
 			data = Arrays.copyOf(data, data.length + 4);
 		}
 		
@@ -22,17 +23,19 @@ public class Sitzbank {
 		return index;
 	}
 	
-//	Entfernt liefert einen zuf Kampfer. Oder liefert null, wenn es leine Lampfer gibt
-	public Kampfer removeRandom() {
-		if (index == 0) {
+	/**
+	 * Entfernt unf liefert einen zufälligen Kämpfer. Oder liefert null, wenn es keine Kämpfer gibt
+	 * @return
+	 */
+	public Kaempfer removeRandom() {
+		if(index==0) {
 			return null;
 		}
 		
 		Random random = new Random();
 		int randomIndex = random.nextInt(index);
 		
-		Kampfer k = data[randomIndex];
-		
+		Kaempfer k = data[randomIndex];
 		for (int i = randomIndex+1; i < index; i++) {
 			data[i-1] = data[i];
 		}
@@ -44,57 +47,73 @@ public class Sitzbank {
 	
 	@Override
 	public String toString() {
-		String text = "";
+		String text = ""; 
 		
 		for (int i = 0; i < index; i++) {
-			Kampfer k = data[i];
+			Kaempfer k = data[i];
 			text += k;
 			
-			if (i < index-1) {
-				text +=  ", ";
+			if(i<index-1) {
+				text += ", ";
 			}
 		}
 		
 		return text;
 	}
 	
-//	public static void main(String[] args) {
-//		Sitzbank bank = new Sitzbank();
-//		
-//		int size = bank.getSize();
-//		
-//		System.out.println(size == 0 ? "ok" : "1. size != 0");
-//		
-//		bank.add(new Kampfer("Tom"));
-//		
-//		size = bank.getSize();
-//		System.out.println(size == 1 ? "ok" : "2. size != 0");
-//		
-//		bank.add(new Kampfer("Jarry"));
-//		
-//		size = bank.getSize();
-//		System.out.println(size == 2 ? "ok" : "3. size != 0");
-//		
-//		String s = bank.toString();
-//		System.out.println("Tom, Jarry".equals(s) ? "ok" : "4. Fehler. toString liefert nicht 'Tom, Jerry'");
-//		
-//		Kampfer k = bank.removeRandom();
-//		System.out.println( k != null ? "ok" : "5.a Fehler: removeRendom lieferte null");
-//		size = bank.getSize();
-//		System.out.println(size == 1 ? "ok" : "2. size != 0");
-//		
-//		k = bank.removeRandom();
-//		System.out.println( k != null ? "ok" : "6.a Fehler: removeRendom lieferte null");
-//		size = bank.getSize();
-//		System.out.println(size == 0 ? "ok" : "2. size != 0");
-//		
-//		for (int i = 0; i < 10; i++) {
-//			bank.add(new Kampfer("K"+i));
-//		}
-//		
-//		size = bank.getSize();
-//		System.out.println(size == 10 ? "ok" : "2. size != 10");
-//		
-//		System.out.println(bank);
-//	}
+	
+	/*
+	public static void main(String[] args) {
+		
+		Sitzbank bank = new Sitzbank();
+		
+		int size = bank.getSize();
+		System.out.println( size == 0 ? "OK" : "1. Fehler: size != 0" );
+		
+		bank.add(new Kaempfer("Tom"));
+		
+		size = bank.getSize();
+		System.out.println( size == 1 ? "OK" : "2. Fehler: size != 1" );
+		
+		bank.add(new Kaempfer("Jerry"));
+		
+		size = bank.getSize();
+		System.out.println( size == 2 ? "OK" : "3. Fehler: size != 2" );
+		
+		String s = bank.toString();
+		System.out.println("Tom, Jerry".equals(s) ? "OK" : "4. Fehler: toString liefert nicht 'Tom, Jerry'");
+		
+		Kaempfer k = bank.removeRandom();
+		System.out.println( k != null ? "OK" : "5.a Fehler: removeRandom lieferte null");
+		size = bank.getSize();
+		System.out.println( size == 1 ? "OK" : "5.b Fehler: size != 1" );
+		
+		
+		k = bank.removeRandom();
+		System.out.println( k != null ? "OK" : "6.a Fehler: removeRandom lieferte null");
+		size = bank.getSize();
+		System.out.println( size == 0 ? "OK" : "6.b Fehler: size != 0" );
+		
+		k = bank.removeRandom();
+		System.out.println( k == null ? "OK" : "7 Fehler: removeRandom lieferte keine null");
+		
+		
+		for (int i = 0; i < 10; i++) {
+			bank.add(new Kaempfer("K"+i));
+		}
+		size = bank.getSize();
+		System.out.println( size == 10 ? "OK" : "8. Fehler: size != 10" );
+		
+		
+		System.out.println(bank);
+	}
+	*/
 }
+
+
+
+
+
+
+
+
