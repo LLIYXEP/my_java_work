@@ -39,7 +39,7 @@ class DerivedD extends BaseA{
 	}
 }
 
-public class B003_Konstruktoren {
+public class B03_Konstruktoren {
 	public static void main(String[] args) {
 		C1 c1 = new C1();
 		C2 c2 = new C2();

@@ -5,7 +5,7 @@ class Pflanze{
 }
 
 class Blume extends Pflanze{
-	
+	String name;
 }
 
 public class B04_Zuweisen {
@@ -25,6 +25,7 @@ public class B04_Zuweisen {
 //		var4 = new String("");
 //		p = new String("");
 		
-		b.alter = 12;
+
+
 	}
 }
