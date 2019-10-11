@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>12</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>264</y>
+      <w>264</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>Kreis
+--
+- radius : int
+--
++ getFlaeche() : double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>144</x>
+      <y>264</y>
+      <w>264</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>Rechteck
+--
+- breite : int
+- hoehe : int
+--
++ getFlaeche() : double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>312</x>
+      <y>12</y>
+      <w>312</w>
+      <h>156</h>
+    </coordinates>
+    <panel_attributes>/&lt;&lt;Figur&gt;&gt;/
+--
+- x : int
+- y : int
+--
++ bewegen(newX : int, newY : int) void
+/+ getFlaeche() : double/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>156</y>
+      <w>192</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>156</y>
+      <w>192</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>324</x>
+      <y>492</y>
+      <w>312</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>Figur f0 = new Kreis();
+Figur f1 = new Rechteck();
+
+Figur[] arr = new Figur[2];
+arr[0] = new Kreis();
+arr[1] = new Rechteck();
+
+double varA = f0.getFlaeche();
+double varB = arr[0].getFlaeche();</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
