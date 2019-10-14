@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>11</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>429</x>
+      <y>33</y>
+      <w>143</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>JavaKurs
+--
+- nummer : int
+--
+# JavaKurs (nummer : int)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>583</x>
+      <y>484</y>
+      <w>275</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>Teilnehmer
+--
+# Teilnehmer (id : String, name : String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>143</x>
+      <y>484</y>
+      <w>275</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>Dozent
+--
+# Dozent (id : String, name : String)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>363</x>
+      <y>220</y>
+      <w>275</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>ComCavePerson
+--
+- name : String
+- id : String
+- kurs : JavaKurs
+--
+# ComCavePerson (id : String, name : String)
++ setKurs (kurs : JavaKurs) : void
+
+alle getter hier</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>517</x>
+      <y>407</y>
+      <w>209</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>297</x>
+      <y>407</y>
+      <w>198</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>495</x>
+      <y>121</y>
+      <w>33</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+</diagram>
