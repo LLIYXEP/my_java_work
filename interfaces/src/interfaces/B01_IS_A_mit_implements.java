@@ -1,59 +1,62 @@
 package interfaces;
 
-class GetMaxClass{
-		
+interface Vergleichbar{
+
+	int vergleichMit(Vergleichbar b);
 }
 
-class Kreis extends GetMaxClass{
-
-	private int radius;
+class Kreis implements Vergleichbar{
 	
+	int radius;
 
 	public Kreis(int radius) {
 		super();
 		this.radius = radius;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Kreis. radius =" + radius ;
 	}
 
-
 	public int getRadius() {
 		return radius;
+	}
+
+	@Override
+	public int vergleichMit(Vergleichbar b) {
+		return radius - ((Kreis)b).radius;
 	}
 
 
 	
 } // end Kreis
 
-class Size extends GetMaxClass{
-	
-	
+class Size implements Vergleichbar{
 
-	public int getValue() {
-		return value;
-	}
+	int value;
 
-
-
-	public Size(int value) {
+	public Size(int size) {
 		super();
-		this.value = value;
+		this.value = size;
 	}
-
-
-	private int value;
-
-	
 
 	public String toString() {
 		return "Size = " + value;
 	}
+
+	public int getSize() {
+		return value;
+	}
+
+	@Override
+	public int vergleichMit(Vergleichbar b) {
+		Size s2 = (Size) b;
+		return this.value - s2.value;
+	}
 	
 } // end Size
+
 
 public class B01_IS_A_mit_implements {
 	
@@ -85,20 +88,27 @@ public class B01_IS_A_mit_implements {
 		Kreis kB = new Kreis(77);
 		System.out.println(getMax(kA, kB)); //Kreis = 77
 		
+		Kreis maxKreis = (Kreis)getMax(kA, kB); // Casting is notig
+		Size maxSize = (Size)getMax(sA, sB); // Casting is notig
+		
 	} //end of main
 	
-	static Object getMax(Object a, Object b) {
-		boolean result = true;
-		if (a instanceof Size) {
-			Size sA = (Size)a;
-			Size sB = (Size)b;
-			
-			if (sA.getValue() < sB.getValue()) {
-				
-			}
+	/*
+	 * Losung mit Interface und Polimorphie
+	 */
+	static Vergleichbar getMax(Vergleichbar a, Vergleichbar b) {
+		if (a.vergleichMit(b) > 0) {
+			return a;
 		} else {
-			
+			return b;
 		}
-		return result;
+	}
+	
+	static Vergleichbar getMaxv1(Vergleichbar a, Vergleichbar b) {
+		if (true) {
+			return a;
+		} else {
+			return b;
+		}
 	}
 }
