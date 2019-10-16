@@ -19,6 +19,15 @@ public class B04_NachPrimitivenZahlenSuchen {
 		pos = Arrays.binarySearch(array, 3);
 		
 		System.out.println("Gesucht nach 3 , Position: " + pos); //Gesucht nach 22 , Position: 4
-	}
+		
+		System.out.println("Kleine aufgabe");
+		array = new int[] {22, 1, 2};
+		System.out.println("array " + Arrays.toString(array)); //[1, 2, 5, 7, 22]
+		
+		System.out.println("Gesucht nach 22");
+		pos = Arrays.binarySearch(array, 22);
+		
+		System.out.println("Gesucht nach 22 in nicht sortierten Array , Position: " + pos); //Gesucht nach 22 , Position: 4
+		}
 	
 }
