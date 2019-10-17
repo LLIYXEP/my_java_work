@@ -12,7 +12,7 @@ public class Aufgabe_default {
 	public interface Container {
 		   /* 
 		    * Speichert x im Container.
-		    * Liefert die neue Containergröße zurück.
+		    * Liefert die neue Containergröße zurück.asasasas
 		    */
 		int add(int x);
 		   
