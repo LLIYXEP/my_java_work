@@ -22,20 +22,85 @@ public class KlasseString_API {
 		
 //		equals_und_equalsIgnoreCase();
 		
-		indexOf_und_lastIndexOf();
+//		indexOf_und_lastIndexOf();
+		
+//		substring();
+		
+//		replace();
+		
+		valueOf();
 		
 	} // end of main
 	
+	//valueOf()
+	static void valueOf() {
+		System.out.println("********** valueOf(XXX) ************");
+		System.out.println(String.valueOf(12));
+		String s = String.valueOf(-2e-2);
+		System.out.println(String.valueOf(-2e-2));
+		
+		char[] arr = {'J','a','v','a'};
+		System.out.println(arr); // Java (da es die spezielle println(char[])	gibt
+		System.out.println("arr " + arr); 
+		
+		System.out.println(String.valueOf(arr));
+		Object obj = arr;
+		System.out.println(String.valueOf(obj));
+	}
+	
+	//Replace (2x uberladen)
+	static void replace() {
+		System.out.println("*********Replace(char oldChar, char newChar)******");
+		
+		String s = "Java ist Klasse!";
+		System.out.println("String: " + s);		// String: Java ist Klasse!
+		String newS = s.replace('a', 'A');
+		System.out.println("String: " + newS);	// String: JAvA ist KlAsse!
+		
+		System.out.println("*********Replace(oldSubstr, newSubstr)******");
+		
+		s = "Java (Sprache) und Java (Insel)!";
+		String oldSubstr = "Java";
+		String newSubstr = "JAVA";
+		newS = s.replace(oldSubstr, newSubstr);
+		System.out.println(newS); // JAVA (Sprache) und JAVA (Insel)!
+	}
+	
+	//substring (2x)
+	static void substring() {
+		System.out.println("*********String substring(int)******");
+		
+		//		    0123456789012
+		String s = "C++ ist toll!";
+		
+		String substr = s.substring(4);
+		System.out.println("String: " + s);   // C++ ist toll!
+		System.out.println("Substring: " + substr); // ist toll!
+		
+		System.out.println("*********Syting substring(int beginIndex, int endIndex)");
+		String substr2 = s.substring(2, 9);
+		System.out.println("Substring2: " + substr2); // + ist t
+		
+		System.out.println(s.substring(-20)); // Exc
+		System.out.println(s.substring(0, 1000)); // Exc
+	}
+	
 	//indexOf (uberladen)und_lastIndexOf (uberladen)
 	static void indexOf_und_lastIndexOf() {
-		//          01234567890123456789
-		String s = "Heute ist Donnerstag";
-		System.out.println(s.indexOf('t'));
-		System.out.println(s.lastIndexOf('n'));
-		System.out.println(s.indexOf("ist"));
+		//          012345678901234567890123456789012
+		String s = "Heute ist Donnerstag, es ist -22C";
+		System.out.println(s.indexOf('t')); // 3
+		System.out.println(s.lastIndexOf('n')); // 13
+		System.out.println(s.indexOf("ist")); // 6
 		System.out.println(s.lastIndexOf(-22)); // sinloss (es kann im String kein Zeichen mit dem Wert -22 geben), aber kompiliert
 		
+		System.out.println(s.indexOf('t', 5)); // 8
+		System.out.println(s.indexOf("ist", 16)); // 8
 		
+		System.out.println(s.lastIndexOf("t")); // 27
+		System.out.println(s.lastIndexOf("t", 25)); // 17
+		
+
 	}
 	
 	//equals
