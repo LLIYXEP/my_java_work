@@ -1,4 +1,4 @@
-package strings.aufgabe;
+package strings;
 
 /*
  * - Schritt 1 - Kompilieren
@@ -13,7 +13,7 @@ package strings.aufgabe;
  * 	
  */
 
-public class StringPool {
+public class B02_StringPool {
 
 	public static void main(String[] args) {
 		

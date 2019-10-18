@@ -4,7 +4,7 @@ package strings;
  * immutable = unveranderlich
  */
 
-public class StringsSindUnveraenerdlich {
+public class B03_StringsSindUnveraenerdlich {
 
 	public static void main(String[] args) {
 		
