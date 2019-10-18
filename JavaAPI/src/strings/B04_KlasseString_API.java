@@ -1,6 +1,6 @@
 package strings;
 
-public class KlasseString_API {
+public class B04_KlasseString_API {
 
 	public static void main(String[] args) {
 		
@@ -20,7 +20,7 @@ public class KlasseString_API {
 		
 //		concat();
 		
-//		equals_und_equalsIgnoreCase();
+		equals_und_equalsIgnoreCase();
 		
 //		indexOf_und_lastIndexOf();
 		
@@ -28,7 +28,7 @@ public class KlasseString_API {
 		
 //		replace();
 		
-		valueOf();
+//		valueOf();
 		
 	} // end of main
 	

@@ -5,6 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    Zdarova haha
+    All books here
+    <#list books as book>
+    	<ul>
+    		<li>${book.name}</li>
+    	</ul>
+    </#list>
 </body>
 </html>

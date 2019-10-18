@@ -1,6 +1,6 @@
 package strings;
 
-public class StringIstEineBesondereKlasse {
+public class B01_StringIstEineBesondereKlasse {
 
 	public static void main(String[] args) {
 		
@@ -32,6 +32,8 @@ public class StringIstEineBesondereKlasse {
 		 */
 		
 		String s3 = "java";
+		
+		System.out.println("\\\\".length());
 		
 		/*
 		 *  3. String - Pool (s. Bsp. 'StringPool')
