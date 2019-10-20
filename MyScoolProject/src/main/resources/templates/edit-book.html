@@ -4,20 +4,20 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<h2>Add new Book</h2>
+				<h2>Edit book [[${book.name}]]</h2>
 			</div>
-			<form action="/add-book" method="POST">
+			<form action="#" th:action="@{/edit-book/{id}(id=${book.id})}" th:object="${book}" method="POST">
 			  <div class="form-group">
 			    <label for="name">Book Name</label>
-			    <input type="text" class="form-control" name="name" id="name" required="required" placeholder="Book Name">
+			    <input type="text" class="form-control" name="name" id="name" th:attr="placeholder=${book.name}" th:value="${book.name}">
 			  </div>
 			  <div class="form-group">
 			    <label for="author">Book Author</label>
-			    <input type="text" class="form-control" name="author" id="author" required="required" placeholder="Book Author">
+			    <input type="text" class="form-control" name="author" id="author" th:attr="placeholder=${book.author}" th:value="${book.author}">
 			  </div>
 			  <div class="form-group">
 			    <label for="pages">Book Author</label>
-			    <input type="number" class="form-control" name="pages" id="pages" required="required" placeholder="Pages">
+			    <input type="number" class="form-control" name="pages" id="pages" th:attr="placeholder=${book.pages}" th:value="${book.pages}">
 			  </div>
 			  <div class="form-check">
 			    <input type="checkbox" class="form-check-input" id="exampleCheck1">

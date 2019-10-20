@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity // This tells Hibernate to make a table out of this class
 @Table(name = "books")
@@ -16,8 +17,9 @@ public class Book {
     private String name;
 
     private String author;
+
+    private String pages;
     
-    private int pages;
 
 	public Book() {
 		super();
@@ -47,11 +49,11 @@ public class Book {
 		this.author = author;
 	}
 
-	public int getPages() {
+	public String getPages() {
 		return pages;
 	}
 
-	public void setPages(int pages) {
+	public void setPages(String pages) {
 		this.pages = pages;
 	}
 
