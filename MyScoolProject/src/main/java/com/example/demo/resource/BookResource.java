@@ -11,24 +11,25 @@ import com.example.demo.repository.Book;
 import com.example.demo.repository.BookRepository;
 
 
-
 @Controller
 public class BookResource {
+	
+	@Autowired
+	BookRepository bookRepository;
 	
 	@GetMapping("/greeting")
     public String greeting() {
         return "greeting";
     }
     
-    @GetMapping("/")
-    public String index() {
+    @GetMapping
+    public String index(@RequestParam(name = "name", required = false, defaultValue = "World" )String name, Model model) {
+    	model.addAttribute("name", name);
     	return "index";
     }
 	
-	@Autowired
-	BookRepository bookRepository;
 	
-	@GetMapping(value = "/add-book")
+	@GetMapping("/add-book")
     public String addBook() {
         return "add-book";
     }
@@ -43,13 +44,12 @@ public class BookResource {
       book.setPages(pages);
       bookRepository.save(book);
 
-      return "index";
+      return "redirect:/all-books";
   }
 
 	@GetMapping(value = "/all-books")
 	public String getAll(Model model){
-		Iterable<Book> books = bookRepository.findAll();
-		model.addAttribute("books", books);
+		model.addAttribute("books", bookRepository.findAll());
 		return "all-books";
 	}
 	

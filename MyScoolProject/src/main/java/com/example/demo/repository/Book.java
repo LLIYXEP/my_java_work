@@ -19,6 +19,10 @@ public class Book {
     
     private int pages;
 
+	public Book() {
+		super();
+	}
+
 	public Integer getId() {
 		return id;
 	}

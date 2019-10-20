@@ -1,9 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
+<div th:insert="header">...</div>
 <body>
 
 	<div class="container">
@@ -12,13 +7,23 @@
 				<h2>Add new Book</h2>
 			</div>
 			<form action="/add-book" method="POST">
-			  Name:<br>
-			  <input type="text" name="name" placeholder="Voina i Mir" ><br>
-			  Author:<br>
-			  <input type="text" name="author" placeholder="L. Tolstoi"><br>
-			  Pages:<br>
-			  <input type="text" name="pages" placeholder="534"><br><br>
-			  <input type="submit" value="Submit">
+			  <div class="form-group">
+			    <label for="name">Book Name</label>
+			    <input type="text" class="form-control" name="name" id="name" required="required" placeholder="Book Name">
+			  </div>
+			  <div class="form-group">
+			    <label for="author">Book Author</label>
+			    <input type="text" class="form-control" name="author" id="author" required="required" placeholder="Book Author">
+			  </div>
+			  <div class="form-group">
+			    <label for="pages">Book Author</label>
+			    <input type="number" class="form-control" name="pages" id="pages" required="required" placeholder="Pages">
+			  </div>
+			  <div class="form-check">
+			    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+			    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+			  </div>
+			  <button type="submit" class="btn btn-primary">Save</button>
 			</form>
 		</div>
 	</div>
