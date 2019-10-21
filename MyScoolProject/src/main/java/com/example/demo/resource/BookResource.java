@@ -61,14 +61,14 @@ public class BookResource {
 	public String editBook(@PathVariable Integer id, @ModelAttribute Book book) {
 		
 		bookRepository.save(book);
-		return "edit-book";
+		return "redirect:/all-books";
 	}
 	
 	@GetMapping("/delete-book/{id}")
 	public String deleteBook(@PathVariable Integer id, Model model) {
 		Book book = bookRepository.getById(id);
 		bookRepository.delete(book);
-		return "all-books";
+		return "redirect:/all-books";
 	}
 	
 }
