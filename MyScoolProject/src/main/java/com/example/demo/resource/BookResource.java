@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.demo.repository.Book;
+import com.example.demo.domain.Book;
 import com.example.demo.repository.BookRepository;
 
 
@@ -61,14 +61,14 @@ public class BookResource {
 	public String editBook(@PathVariable Integer id, @ModelAttribute Book book) {
 		
 		bookRepository.save(book);
-		return "edit-book";
+		return "redirect:/all-books";
 	}
 	
 	@GetMapping("/delete-book/{id}")
 	public String deleteBook(@PathVariable Integer id, Model model) {
 		Book book = bookRepository.getById(id);
 		bookRepository.delete(book);
-		return "all-books";
+		return "redirect:/all-books";
 	}
 	
 }
