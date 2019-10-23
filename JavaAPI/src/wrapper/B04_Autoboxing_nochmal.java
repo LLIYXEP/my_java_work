@@ -35,7 +35,7 @@ public class B04_Autoboxing_nochmal {
 		System.out.println("var6 = " + var5);
 		
 		Integer var7 = null;
-//		int var8 = var7; // Autounboxing - var7.intValue(); - NullPointerException
+//		int var18 = var7; // Autounboxing - var7.intValue(); - NullPointerException
 		
 		System.out.println("--------------------------------------------");
 		
