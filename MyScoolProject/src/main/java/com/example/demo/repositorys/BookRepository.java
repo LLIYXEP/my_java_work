@@ -1,8 +1,8 @@
-package com.example.demo.repository;
+package com.example.demo.repositorys;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.demo.domain.Book;
+import com.example.demo.models.Book;
 
 
 //This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository

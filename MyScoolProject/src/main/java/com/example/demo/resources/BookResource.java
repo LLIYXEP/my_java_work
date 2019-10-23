@@ -1,4 +1,4 @@
-package com.example.demo.resource;
+package com.example.demo.resources;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.domain.Book;
-import com.example.demo.repository.BookRepository;
+import com.example.demo.models.Book;
+import com.example.demo.repositorys.BookRepository;
 
 
 @Controller

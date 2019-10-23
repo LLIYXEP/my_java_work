@@ -50,6 +50,23 @@ public class Aufgabe_array  {
 	
 
 	public static void main(String[] args) {
+		System.out.println("###### A12");
+		int[] a1 = { 1, 2, 3};
+		int[] a2 = { -7, -5 };
+		int[] a3 = { 101, 202, 303 };
+		ArrayList<Integer> list8 = new ArrayList<>();
+		for (int i = 0; i < a1.length; i++) {
+			list8.add(a1[i]);
+		}
+		for (int i = 0; i < a2.length; i++) {
+			list8.add(a2[i]);
+		}
+		for (int i = 0; i < a3.length; i++) {
+			list8.add(a3[i]);
+		}
+		
+		System.out.println(list8);
+		
 		System.out.println("###### A11");
 		List<String> strArr = new ArrayList<>();
 		strArr.add("mo");

@@ -1,4 +1,4 @@
-package com.example.demo.resource;
+package com.example.demo.resources;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
