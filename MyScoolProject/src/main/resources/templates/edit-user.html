@@ -1,0 +1,35 @@
+<div th:insert="parts/header">...</div>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>Edit User with name [[${user.username}]]r</h2>
+			</div>
+			<form action="#" th:action="@{/edit-user/{id}(id=${user.id})}" th:object="${user}" method="POST">
+			
+			  <div class="form-group">
+			    <label for="firstName">User first name</label>
+			    <input type="text" class="form-control" name="firstName" id="firstName" required="required" placeholder="User first name" th:value="${user.username}" th:attr="placeholder=${user.username}">
+			  </div>
+			  <div class="form-group">
+			    <label for="lastName">User last name</label>
+			    <input type="text" class="form-control" name="lastName" id="lastName" required="required" placeholder="User last name" th:value="${user.lastName}" th:attr="placeholder=${user.lastName}">
+			  </div>
+			  <div class="form-group">
+			    <label for="password">Password</label>
+			    <input type="text" class="form-control" name="password" id="password" required="required" placeholder="Password" th:value="${user.password}" th:attr="placeholder=${user.password}">
+			  </div>
+			  <div class="form-group">
+			    <label for="age">User Age</label>
+			    <input type="number" class="form-control" name="age" id="age" required="required" placeholder="User Age" th:value="${user.age}" th:attr="placeholder=${user.age}">
+			  </div>
+			  <div class="form-group">
+			    <label for=email>User E-mail</label>
+			    <input type="text" class="form-control" name="email" id="email" required="required" placeholder="User E-mail" th:value="${user.email}" th:attr="placeholder=${user.email}">
+			  </div>
+			  <button type="submit" class="btn btn-primary">Save</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
