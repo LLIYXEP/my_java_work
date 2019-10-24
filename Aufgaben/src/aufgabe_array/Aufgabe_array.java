@@ -131,12 +131,13 @@ public class Aufgabe_array  {
 		System.out.println("###### A7");
 		ArrayList<Integer> list4 = makeArray3(10);
 		System.out.println(list4);
+		Collections.sort(list4);
 		System.out.println(Collections.binarySearch(list4, 12));
 		
 		System.out.println();
 		System.out.println("###### A8");
 		ArrayList<Integer> list5 = makeArray3(10);
-		list5.removeIf(n -> (n % 2 == 0) );
+		list5.removeIf( n -> (n % 2 == 1) );
 		System.out.println(list5);
 		
 		System.out.println();

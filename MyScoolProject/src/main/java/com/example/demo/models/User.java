@@ -1,16 +1,21 @@
 package com.example.demo.models;
 
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.Set;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
@@ -33,7 +38,10 @@ public class User implements UserDetails {
 	
 	private boolean active;
 	
-	private String roles;
+	@ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
+	private Set<Role> roles;
 	
 	public User() {
 		super();
@@ -47,11 +55,12 @@ public class User implements UserDetails {
 		this.active = active;
 	}
 
-	public String getRoles() {
+
+	public Set<Role> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(String roles) {
+	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
 
@@ -97,7 +106,7 @@ public class User implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+		return getRoles();
 	}
 
 	public void setUsername(String username) {
