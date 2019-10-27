@@ -14,26 +14,42 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Range;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
+	@NotNull (message = "Fisrt name is required! Can't be empty!")
+	@Size(min = 4, max = 40)
 	private String username;
 	
+	@NotNull (message = "Last name is required! Can't be empty!")
+	@Size(min = 4, max = 40)
 	private String lastName;
 	
+	@Range(min = 18, max = 100)
+	@Digits(integer=3, fraction=0, message = "Не более 3-х знаков")
 	private Integer age;
 	
+	@NotNull (message = "Password is required! Can't be empty!")
+	@Size(max = 16 , message = "Password must be min = 5, max = 16 characters")
 	private String password ;
 	
+	@NotNull (message = "Email is required! Can't be empty!")
+	@Email
 	private String email;
 	
 	private boolean active;
@@ -42,6 +58,7 @@ public class User implements UserDetails {
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
 	private Set<Role> roles;
+	
 	
 	public User() {
 		super();

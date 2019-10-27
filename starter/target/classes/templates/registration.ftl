@@ -7,6 +7,8 @@
 	<h5>Add new user</h5>
 </div>
 
+<div th:text=${error}></div>
+
 ${message?ifExists}
 
 <@l.login "/registration" true/>

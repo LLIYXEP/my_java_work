@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<h2>Edit User with name [[${user.username}]]r</h2>
+				<h2>Edit User with name [[${user.username}]]</h2>
 			</div>
 			<form action="#" th:action="@{/edit-user/{id}(id=${user.id})}" th:object="${user}" method="POST">
 			
@@ -17,7 +17,7 @@
 			  </div>
 			  <div class="form-group">
 			    <label for="password">Password</label>
-			    <input type="text" class="form-control" name="password" id="password" required="required" placeholder="Password" th:value="${user.password}" th:attr="placeholder=${user.password}">
+			    <input type="text" class="form-control" name="password" id="password" placeholder="Password" >
 			  </div>
 			  <div class="form-group">
 			    <label for="age">User Age</label>
@@ -27,6 +27,15 @@
 			    <label for=email>User E-mail</label>
 			    <input type="text" class="form-control" name="email" id="email" required="required" placeholder="User E-mail" th:value="${user.email}" th:attr="placeholder=${user.email}">
 			  </div>
+			  <!-- 
+			  
+			   -->
+			   <tr th:each="role : ${roles}">
+			    	
+			     <label><input type="checkbox" th:name="${role}" th:value="${role}">[[${role}]]</label>
+			    	
+			   </tr><br>
+			  
 			  <button type="submit" class="btn btn-primary">Save</button>
 			</form>
 		</div>
