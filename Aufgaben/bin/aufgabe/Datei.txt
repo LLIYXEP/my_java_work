@@ -1,0 +1,8 @@
+# Kommentarzeile
+22
+-3007
+8
+# eine weitere Kommentarzeile
+-23456
+-17
+55
