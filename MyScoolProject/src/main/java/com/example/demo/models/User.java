@@ -45,7 +45,6 @@ public class User implements UserDetails {
 	private Integer age;
 	
 	@NotNull (message = "Password is required! Can't be empty!")
-	@Size(max = 16 , message = "Password must be min = 5, max = 16 characters")
 	private String password ;
 	
 	@NotNull (message = "Email is required! Can't be empty!")

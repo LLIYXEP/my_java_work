@@ -40,11 +40,16 @@ public class UserResource {
 	}
 	
 	@PostMapping("/registration")
-	public String registerPage(@RequestParam String password, @ModelAttribute User user, BindingResult bindingResult, Model model) {
-		user.setRoles(Collections.singleton(Role.USER));
-		user.setPassword(passwordEncoder.encode(password));
-		userRepository.save(user);
-		return "login";
+	public String registerPage(@RequestParam String password,@Valid @ModelAttribute User user, BindingResult bindingResult, Model model) {
+		if (bindingResult.hasErrors()) {
+			model.addAttribute("hasErrors", bindingResult);
+			return "registration";
+		} else {
+			user.setRoles(Collections.singleton(Role.USER));
+			user.setPassword(passwordEncoder.encode(password));
+			userRepository.save(user);
+			return "login";
+		}
 	}
 	
 	@GetMapping("/users")
