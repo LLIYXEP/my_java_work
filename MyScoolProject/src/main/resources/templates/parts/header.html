@@ -1,9 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+	.error-msg{
+		color: red;
+	}
+	.inputError{
+		border-color: red;
+	}
+	.s-wide{
+		padding: 80px 0;
+	}
+	h2,h1{
+		margin-bottom: 50px;
+	}
+	.regform,.logform,.editUserform,.editBookform,.bookform{
+		width: 350px;
+	}
+</style>
 </head>
 <body>
 	<header>
@@ -28,13 +46,13 @@
 		        <a class="nav-link" href="/users">Users</a>
 		      </li>
 		    </ul>
-		    <div class="mr-3">
+		    <div class="mr-3" sec:authorize="isAnonymous()">
 		    	<a class="btn btn-outline-success my-2 my-sm-0" href="/login">Log In</a>
 		    </div>
-		    <div class="mr-3">
+		    <div class="mr-3" sec:authorize="isAnonymous()">
 		    	<a class="btn btn-outline-success my-2 my-sm-0" href="/registration">Register</a>
 		    </div>
-		    <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post">
+		    <form sec:authorize="isAuthenticated()" class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post">
 		      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Sign Out</button>
 		    </form>
 		  </div>

@@ -35,7 +35,7 @@ public class UserResource {
 	UserRepository userRepository;
 	
 	@GetMapping("/registration")
-	public String getRegPage() {
+	public String getRegPage(@ModelAttribute User user) {
 		return "registration";
 	}
 	
@@ -43,7 +43,7 @@ public class UserResource {
 	public String registerPage(@RequestParam String password,@Valid @ModelAttribute User user, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("hasErrors", bindingResult);
-			return "registration";
+			return "/registration";
 		} else {
 			user.setRoles(Collections.singleton(Role.USER));
 			user.setPassword(passwordEncoder.encode(password));

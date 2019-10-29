@@ -1,12 +1,12 @@
 <div th:insert="parts/header">...</div>
 <body>
 
-	<div class="container">
+	<div class="container s-wide">
 		<div class="row">
 			<div class="col-sm-12">
 				<h2>Edit book [[${book.name}]]</h2>
 			</div>
-			<form action="#" th:action="@{/edit-book/{id}(id=${book.id})}" th:object="${book}" method="POST">
+			<form th:class="editBookform" action="#" th:action="@{/edit-book/{id}(id=${book.id})}" th:object="${book}" method="POST">
 			  <div class="form-group">
 			    <label for="name">Book Name</label>
 			    <input type="text" class="form-control" name="name" id="name" th:attr="placeholder=${book.name}" th:value="${book.name}">

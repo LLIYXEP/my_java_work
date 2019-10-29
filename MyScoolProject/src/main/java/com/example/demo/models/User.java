@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -32,22 +33,22 @@ public class User implements UserDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
-	@NotNull (message = "Fisrt name is required! Can't be empty!")
-	@Size(min = 4, max = 40)
+	@NotEmpty (message = "Fisrt name is required! Can't be empty!")
+	@Size(min = 4, max = 40, message = "Fisrt name must be between {min} and {max} characters")
 	private String username;
 	
-	@NotNull (message = "Last name is required! Can't be empty!")
-	@Size(min = 4, max = 40)
+	@NotEmpty (message = "Last name is required! Can't be empty!")
+	@Size(min = 4, max = 40, message = "Last name must be between {min} and {max} characters")
 	private String lastName;
 	
 	@Range(min = 18, max = 100)
-	@Digits(integer=3, fraction=0, message = "Не более 3-х знаков")
+	@Digits(integer=3, fraction=0, message = "Password must be maximum 3 digits")
 	private Integer age;
 	
-	@NotNull (message = "Password is required! Can't be empty!")
+	@NotEmpty (message = "Password is required! Can't be empty!")
 	private String password ;
 	
-	@NotNull (message = "Email is required! Can't be empty!")
+	@NotEmpty (message = "Email is required! Can't be empty!")
 	@Email
 	private String email;
 	

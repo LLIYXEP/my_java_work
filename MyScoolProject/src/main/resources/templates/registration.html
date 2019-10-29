@@ -1,32 +1,37 @@
 <div th:insert="parts/header">...</div>
 <body>
-	<div class="container">
+	<div class="container s-wide">
 		<div class="row">
 			<div class="col-sm-12">
 				<h2>Register new User</h2>
 			</div>
-			<form th:action="@{/registration}" method="POST">
-			
+
+			<form th:class="regform" th:action="@{/registration}" th:object="${user}"  method="POST">
 			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 			  <div class="form-group">
 			    <label for="firstName">User first name</label>
-			    <input type="text" class="form-control" name="firstName" id="firstName" required="required" placeholder="User first name">
+			    <input type="text" th:class="form-control" th:field="*{username}" th:classappend="${#fields.hasErrors('username')}? inputError" placeholder="User first name">
+			    <div class="error-msg" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Name Error</div>
 			  </div>
 			  <div class="form-group">
 			    <label for="lastName">User last name</label>
-			    <input type="text" class="form-control" name="lastName" id="lastName" required="required" placeholder="User last name">
+			    <input type="text" class="form-control" th:field="*{lastName}" th:classappend="${#fields.hasErrors('lastName')}? inputError" name="lastName" id="lastName" placeholder="User last name">
+			    <div class="error-msg" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</div>
 			  </div>
 			  <div class="form-group">
 			    <label for="password">Password</label>
-			    <input type="text" class="form-control" name="password" id="password" required="required" placeholder="Password">
+			    <input type="text" class="form-control" th:field="*{password}" th:classappend="${#fields.hasErrors('password')}? inputError" name="password" id="password" placeholder="Password">
+			    <div class="error-msg" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Name Error</div>
 			  </div>
 			  <div class="form-group">
 			    <label for="age">User Age</label>
-			    <input type="number" class="form-control" name="age" id="age" required="required" placeholder="User Age">
+			    <input type="number" class="form-control" th:field="*{age}" th:classappend="${#fields.hasErrors('age')}? inputError" name="age" id="age" placeholder="User Age">
+			    <div class="error-msg" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Name Error</div>
 			  </div>
 			  <div class="form-group">
 			    <label for=email>User E-mail</label>
-			    <input type="text" class="form-control" name="email" id="email" required="required" placeholder="User E-mail">
+			    <input type="text" class="form-control" th:field="*{email}" th:classappend="${#fields.hasErrors('email')}? inputError" name="email" id="email" placeholder="User E-mail">
+			    <div class="error-msg" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name Error</div>
 			  </div>
 			  <button type="submit" class="btn btn-primary">Register</button>
 			</form>

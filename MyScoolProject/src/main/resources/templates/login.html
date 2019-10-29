@@ -1,16 +1,25 @@
 <div th:insert="parts/header">...</div>
     <body>
-        <div class="container">
+        <div class="container s-wide">
+			<div class="col-sm-12">
+				<h2>Log in</h2>
+			</div>
         		<div th:if="${param.error}">
 		            Invalid username and password.
 		        </div>
 		        <div th:if="${param.logout}">
 		            You have been logged out.
 		        </div>
-		        <form th:action="@{/login}" method="post">
-		            <div><label> User Name : <input type="text" name="username"/> </label></div>
-		            <div><label> Password: <input type="password" name="password"/> </label></div>
-		            <div><input type="submit" value="Sign In"/></div>
+		        <form th:class="logform" th:action="@{/login}" method="post">
+		        	<div class="form-group">
+					    <label for="firstName">User Name</label>
+					    <input type="text" class="form-control" name="username">
+					  </div>
+		        	<div class="form-group">
+					    <label for="firstName">Password</label>
+					    <input type="password" class="form-control" name="password">
+					  </div>
+					  <button type="submit" class="btn btn-primary">Sign In</button>
 		        </form>
         </div>
     </body>
