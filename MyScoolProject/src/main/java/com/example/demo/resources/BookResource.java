@@ -1,9 +1,12 @@
 package com.example.demo.resources;
 
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,16 +25,21 @@ public class BookResource {
 	
 	
 	@GetMapping("/add-book")
-    public String addBook() {
+    public String addBook(@ModelAttribute Book book) {
         return "add-book";
     }
 	
 	@PostMapping("/add-book")
-	public String update(@ModelAttribute Book book) {
+	public String update(@Valid @ModelAttribute Book book, BindingResult bindingResult, Model model) {
 
-      bookRepository.save(book);
+      if (bindingResult.hasErrors()) {
+    	  model.addAttribute("hasErrors", bindingResult);
+		return "add-book";
+	} else {
+		bookRepository.save(book);
 
-      return "redirect:/all-books";
+	      return "redirect:/all-books";
+	}
   }
 
 	@GetMapping(value = "/all-books")

@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Entity // This tells Hibernate to make a table out of this class
@@ -14,10 +15,13 @@ public class Book {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
+    @NotEmpty (message = "Book name is required! Can't be empty!")
     private String name;
-
+    
+    @NotEmpty (message = "Book author is required! Can't be empty!")
     private String author;
 
+    @NotEmpty (message = "Number of pages is required! Can't be empty!")
     private String pages;
     
 

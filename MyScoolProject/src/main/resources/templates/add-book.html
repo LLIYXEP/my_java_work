@@ -6,19 +6,22 @@
 			<div class="col-sm-12">
 				<h2>Add new Book</h2>
 			</div>
-			<form th:class="bookform" action="/add-book" method="POST">
+			<form th:class="bookform" th:action="@{/add-book}" th:object="${book}" method="POST">
 			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 			  <div class="form-group">
 			    <label for="name">Book Name</label>
-			    <input type="text" class="form-control" name="name" id="name" required="required" placeholder="Book Name">
+			    <input type="text" class="form-control" th:field="*{name}" th:classappend="${#fields.hasErrors('name')}? inputError" placeholder="Book Name">
+			  	<div class="error-msg" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
 			  </div>
 			  <div class="form-group">
 			    <label for="author">Book Author</label>
-			    <input type="text" class="form-control" name="author" id="author" required="required" placeholder="Book Author">
+			    <input type="text" class="form-control" th:field="*{author}" th:classappend="${#fields.hasErrors('author')}? inputError" placeholder="Book Author">
+			    <div class="error-msg" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Name Error</div>
 			  </div>
 			  <div class="form-group">
 			    <label for="pages">Book Pages</label>
-			    <input type="number" class="form-control" name="pages" id="pages" required="required" placeholder="Pages">
+			    <input type="number" class="form-control" th:field="*{pages}" th:classappend="${#fields.hasErrors('pages')}? inputError" placeholder="Pages">
+			    <div class="error-msg" th:if="${#fields.hasErrors('pages')}" th:errors="*{pages}">Name Error</div>
 			  </div>
 			  <button type="submit" class="btn btn-primary">Save</button>
 			</form>
