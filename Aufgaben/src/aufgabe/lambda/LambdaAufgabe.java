@@ -17,7 +17,7 @@ class listAdd implements ListPair{
 		List<Integer> list = new ArrayList<Integer>();
 		list.addAll(list1);
 		list.addAll(list2);
-		return null;
+		return list;
 	}
 	
 }
@@ -67,11 +67,9 @@ public class LambdaAufgabe {
 		
 		System.out.println("**************** Aufgabe 2 **************");
 		
-		ArrayList<String> list = new ArrayList<String>();
-		list.add("as");
-		list.add("adsfg sdfg");
-		list.add("frtdfg");
-		list.add("fr tdfssdffg dfg");
+		List<String> vorlage = Arrays.asList("as", "adsfg sdfg", "frtdfg", "fr tdfssdffg dfg");
+		ArrayList<String> list = new ArrayList<>(vorlage);
+		
 		
 		Comparator<String> cmp = (x,y) -> x.length() - y.length();
 		Collections.sort(list, cmp);
@@ -81,20 +79,25 @@ public class LambdaAufgabe {
 		
 		List<Integer> list1 = new ArrayList<>();
 		// 2-3 Integer zur list1 hinzufügen...
-		list1.add(14);
-		list1.add(26);
-		list1.add(21);
+		list1.add(2);
+		list1.add(3);
 		
 		List<Integer> list2 = new ArrayList<>();
 		// 2-3 Integer zur lisr2 hinzufügen...
-		list2.add(2);
-		list2.add(12);
-		list2.add(125);
+		list2.add(4);
+		list2.add(5);
 		
-		ListPair combiner = (x,y) -> Arrays.asList(Integer.valueOf(x.subList(0,3).toString() + y.subList(0,3).toString())); // hier die Lambda-Funktion
-		List<Integer> list3 = combiner.accept(list1, list2);
+		
+//		ListPair combiner = (x,y) -> Arrays.asList(Integer.valueOf(x.subList(0,3).toString() + y.subList(0,3).toString())); // hier die Lambda-Funktion
+//		ListPair combiner = (x, y) -> ; // hier die Lambda-Funktion
+//		List<Integer> list3 = combiner.accept(list1, list2);
+		
+		ListPair combiner2 = new listAdd();
+		List<Integer> list3 = combiner2.accept(list1, list2);
 		System.out.println(list3);
-		//list3 hat alle Elemente aus list1 und list2
+		
+		list3 = combiner2.accept(list1, list1);
+		System.out.println(list3);
 	}
 	
 }
