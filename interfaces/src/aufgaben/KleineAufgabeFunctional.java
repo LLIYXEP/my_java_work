@@ -27,16 +27,20 @@ public class KleineAufgabeFunctional {
 		
 		String[] namen = {"Tom", "Jerry", "Peter", "Paul", "Mary", "Ute"};
 		
-		List<Astronaut> listA = buildMannschaft(namen);
+		Function<String, Astronaut> build = x -> new Astronaut(x);
+		
+		
+		
+		List<Astronaut> listA = buildMannschaft(namen, build);
 		System.out.println(listA);
 		
 		
 		
 	} // end of Main
 	
-	static List<Astronaut> buildMannschaft(String[] namen){
+	static List<Astronaut> buildMannschaft(String[] namen, Function<String, Astronaut> build){
 		List<Astronaut> newList = new ArrayList<Astronaut>();
-		Function<String, Astronaut> build = x -> new Astronaut(x);
+		
 		for (String name : namen) {
 			newList.add(build.apply(name)) ;
 		}
