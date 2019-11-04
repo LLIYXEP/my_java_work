@@ -10,6 +10,7 @@
 		      <th scope="col">Name</th>
 		      <th scope="col">Author</th>
 		      <th scope="col">Pages</th>
+		      <th scope="col">Added by</th>
 		      <div sec:authorize="hasAuthority('ADMIN')">
 		      <th scope="col">Edit</th>
 		      <th scope="col">Delete</th>
@@ -22,6 +23,7 @@
 		      <td th:text="${book.name}"></td>
 		      <td th:text="${book.author}"></td>
 		      <td th:text="${book.pages}"></td>
+		      <td th:text="${book.userName}"></td>
 		      <div sec:authorize="hasAuthority('ADMIN')">
 		      <td><a th:href="@{/edit-book/{id}(id=${book.id})}" type="button" class="btn btn-primary btn-sm">Edit</a></td>
 		      <td><a th:href="@{/delete-book/{id}(id=${book.id})}" type="button" class="btn btn-danger btn-sm">Delete</a></td>

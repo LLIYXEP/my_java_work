@@ -11,4 +11,6 @@ import com.example.demo.models.Book;
 public interface BookRepository extends JpaRepository<Book, Integer> {
 	Book getById(int id);
 	
+	Book findByName(String name);
+	
 }

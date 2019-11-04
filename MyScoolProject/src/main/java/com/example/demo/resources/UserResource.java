@@ -2,6 +2,7 @@ package com.example.demo.resources;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.models.Book;
 import com.example.demo.models.Role;
 import com.example.demo.models.User;
 import com.example.demo.repositorys.UserRepository;
@@ -83,7 +85,7 @@ public class UserResource {
 		if (roleAdmin != null) {
 			role.add(roleAdmin);
 		}
-		
+
 		userService.saveRole(role, age, id, allParams);
 		return "redirect:/users";
 	}

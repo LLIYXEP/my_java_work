@@ -1,9 +1,13 @@
 package com.example.demo.resources;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.models.Book;
+import com.example.demo.models.User;
 import com.example.demo.repositorys.BookRepository;
 
 
@@ -30,12 +35,14 @@ public class BookResource {
     }
 	
 	@PostMapping("/add-book")
-	public String update(@Valid @ModelAttribute Book book, BindingResult bindingResult, Model model) {
+	public String update(@AuthenticationPrincipal User user, @Valid @ModelAttribute Book book, BindingResult bindingResult, Model model) {
 
       if (bindingResult.hasErrors()) {
     	  model.addAttribute("hasErrors", bindingResult);
 		return "add-book";
 	} else {
+		
+		book.setUser(user);
 		bookRepository.save(book);
 
 	      return "redirect:/all-books";
