@@ -2,6 +2,7 @@ package functional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class B10_Predicate_und_ArrayList {
@@ -67,6 +68,15 @@ public class B10_Predicate_und_ArrayList {
 		System.out.println(listCopy);
 		listCopy.removeIf(isUngeradeOderZero);
 		System.out.println(listCopy);
+		
+		/*
+		 * Evtl. in einfachen Fragen: foreach(Consumer)
+		 * 
+		 * Z.B. alle Elemente einer ArrayList einem Consumer
+		 */
+		
+		Consumer<Integer> action = element -> System.out.println(element);
+		listCopy.forEach(action);
 	}
 	
 }
