@@ -1,22 +1,28 @@
 package enums;
 
+import java.util.Arrays;
+
 enum Size {
 	BIG, SMALL
 }
 
 class Groesse {
+	
+	
 	static final Groesse GROSS = new Groesse() {@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return "GROSS";
 	}};
 	static final Groesse KLEIN = new Groesse() {
 		@Override
 		public String toString() {
-			// TODO Auto-generated method stub
 			return "KLEIN";
 		}
 	};
+	
+	static Groesse[] values() {
+		return new Groesse[] { GROSS, KLEIN};
+	}
 	
 	private Groesse() {}
 
@@ -49,9 +55,19 @@ public class B04_WasEineEnumKlasseImmerHat {
 		 */
 		s1 = Size.BIG; 
 		g1 = Groesse.GROSS;
-	System.out.println(s1);
-	System.out.println(g1);
-	System.out.println(Groesse.KLEIN);
+		
+		System.out.println(s1);
+		System.out.println(g1);
+		System.out.println(Groesse.KLEIN);
+		
+		/*
+		 * statische Methode values()
+		 */
+		Size[] allSizes = Size.values();
+		System.out.println("Size values: " + Arrays.toString(allSizes));
+		
+		Groesse[] alleGroessen = Groesse.values();
+		System.out.println("Groesse values: " + Arrays.toString(alleGroessen));
 	}
 	
 }
