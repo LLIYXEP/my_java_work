@@ -3,17 +3,26 @@ package enums;
 import java.util.Arrays;
 
 enum Size {
-	BIG, SMALL
+	SMALL, BIG
 }
 
-class Groesse {
+class Groesse implements Comparable<Groesse> {
+	private String name;
+	private int ordinal;
 	
 	
-	static final Groesse GROSS = new Groesse() {@Override
+	public Groesse(String name, int ordinal) {
+		super();
+		this.name = name;
+		this.ordinal = ordinal;
+	}
+	
+
+	static final Groesse GROSS = new Groesse("KLEIN", 0) {@Override
 	public String toString() {
 		return "GROSS";
 	}};
-	static final Groesse KLEIN = new Groesse() {
+	static final Groesse KLEIN = new Groesse("GROSS", 1) {
 		@Override
 		public String toString() {
 			return "KLEIN";
@@ -21,7 +30,7 @@ class Groesse {
 	};
 	
 	static Groesse[] values() {
-		return new Groesse[] { GROSS, KLEIN};
+		return new Groesse[] { KLEIN, GROSS};
 	}
 	
 	private Groesse() {}
@@ -29,6 +38,11 @@ class Groesse {
 	@Override
 	public String toString() {
 		return this.toString();
+	}
+
+	@Override
+	public int compareTo(Groesse o) {
+		return ordinal - o.ordinal;
 	}
 	
 	
@@ -56,6 +70,10 @@ public class B04_WasEineEnumKlasseImmerHat {
 		s1 = Size.BIG; 
 		g1 = Groesse.GROSS;
 		
+		
+		/*
+		 * toString()
+		 */
 		System.out.println(s1);
 		System.out.println(g1);
 		System.out.println(Groesse.KLEIN);
@@ -68,6 +86,26 @@ public class B04_WasEineEnumKlasseImmerHat {
 		
 		Groesse[] alleGroessen = Groesse.values();
 		System.out.println("Groesse values: " + Arrays.toString(alleGroessen));
+		
+		/*
+		 * 
+		 */
+		int ordinal = s1.ordinal(); // Poriadkovii nomerBIG
+		System.out.println(ordinal); // 0
+		
+		/*
+		 * name()
+		 */
+		System.out.println(Size.SMALL.name()); // SMALL
+		
+		/*
+		 * sort()
+		 */
+		Arrays.sort(Size.values()); // OK
+		Arrays.sort(Groesse.values()); // OK (Comparable)
+		
+		
+		
 	}
 	
 }
