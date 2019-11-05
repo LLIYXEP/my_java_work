@@ -1,10 +1,8 @@
 package com.example.demo.services;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.example.demo.models.Role;
 import com.example.demo.models.User;
@@ -20,6 +19,8 @@ import com.example.demo.repositorys.UserRepository;
 
 @Service
 public class UserService implements UserDetailsService{
+	@Autowired
+	private MailSender mailSender;
 	
 	@Autowired
 	PasswordEncoder passwordEncoder;
@@ -64,7 +65,34 @@ public class UserService implements UserDetailsService{
 
 
         userRepository.save(user);
+        
     }
 
+	public void sendMessage(User user) {
+		if (!StringUtils.isEmpty(user.getEmail())) {
+			String message = String.format(
+					"Hello, %s! \n" + "Welcome to My New Website. Please, visit next link  http://localhost:8080/activate/%s",
+					user.getFirstName(), user.getActivationCode()
+					);
+			
+			 mailSender.send(user.getEmail(), "Activation code", message);
+		}
+	}
+
+	public boolean activateUser(String code) {
+		
+		User user = userRepository.findByActivationCode(code);
+		
+		if (user == null) {
+			return false;
+		}
+		
+		user.setActivationCode(null);
+		user.setActive(true);
+		
+		userRepository.save(user);
+		
+		return true;
+	}
 	
 }

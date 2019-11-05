@@ -62,7 +62,16 @@ public class User implements UserDetails {
 	@Column(name = "email", unique = true)
 	@UniqueUseremail (message = "User with this Email already exists!")
 	private String email;
+	private String activationCode;
 	
+	public String getActivationCode() {
+		return activationCode;
+	}
+
+	public void setActivationCode(String activationCode) {
+		this.activationCode = activationCode;
+	}
+
 	private boolean active;
 	
 	@ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
