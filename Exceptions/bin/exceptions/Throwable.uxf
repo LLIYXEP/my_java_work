@@ -106,22 +106,23 @@
       <x>603</x>
       <y>108</y>
       <w>189</w>
-      <h>36</h>
+      <h>63</h>
     </coordinates>
-    <panel_attributes>Lasst sich mit throw werfen
-und mit catch abfangen</panel_attributes>
+    <panel_attributes>Lasst sich mit throw werfen,
+und mit catch abfangen,
+mit throws deklarieren</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>612</x>
-      <y>135</y>
+      <y>162</y>
       <w>63</w>
-      <h>99</h>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;..</panel_attributes>
-    <additional_attributes>10.0;90.0;50.0;10.0</additional_attributes>
+    <additional_attributes>10.0;60.0;50.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
