@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>13</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>442</x>
-      <y>182</y>
-      <w>130</w>
-      <h>39</h>
+      <x>567</x>
+      <y>216</y>
+      <w>90</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>Throwable</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>312</x>
-      <y>299</y>
-      <w>130</w>
-      <h>39</h>
+      <x>477</x>
+      <y>297</y>
+      <w>90</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>Error</panel_attributes>
     <additional_attributes/>
@@ -26,10 +26,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>572</x>
-      <y>299</y>
-      <w>130</w>
-      <h>39</h>
+      <x>657</x>
+      <y>297</y>
+      <w>90</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>Exception</panel_attributes>
     <additional_attributes/>
@@ -37,10 +37,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>520</x>
-      <y>208</y>
-      <w>143</w>
-      <h>117</h>
+      <x>621</x>
+      <y>234</y>
+      <w>99</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;90.0;70.0</additional_attributes>
@@ -48,10 +48,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>377</x>
-      <y>208</y>
-      <w>143</w>
-      <h>117</h>
+      <x>522</x>
+      <y>234</y>
+      <w>99</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>90.0;10.0;10.0;70.0</additional_attributes>
@@ -59,10 +59,10 @@
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>689</x>
-      <y>182</y>
-      <w>273</w>
-      <h>52</h>
+      <x>738</x>
+      <y>216</y>
+      <w>189</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Evtl. sinvoll behandelbar</panel_attributes>
     <additional_attributes/>
@@ -70,10 +70,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>676</x>
-      <y>221</y>
-      <w>104</w>
-      <h>104</h>
+      <x>729</x>
+      <y>243</y>
+      <w>72</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;..</panel_attributes>
     <additional_attributes>10.0;60.0;60.0;10.0</additional_attributes>
@@ -81,10 +81,10 @@
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>52</x>
-      <y>182</y>
-      <w>273</w>
-      <h>52</h>
+      <x>297</x>
+      <y>216</y>
+      <w>189</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Nicht sinvoll behandelbar</panel_attributes>
     <additional_attributes/>
@@ -92,10 +92,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>221</y>
-      <w>91</w>
-      <h>104</h>
+      <x>441</x>
+      <y>243</y>
+      <w>63</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;..</panel_attributes>
     <additional_attributes>50.0;60.0;10.0;10.0</additional_attributes>
@@ -103,10 +103,10 @@
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>494</x>
-      <y>26</y>
-      <w>273</w>
-      <h>52</h>
+      <x>603</x>
+      <y>108</y>
+      <w>189</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Lasst sich mit throw werfen
 und mit catch abfangen</panel_attributes>
@@ -115,10 +115,10 @@ und mit catch abfangen</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>507</x>
-      <y>65</y>
-      <w>91</w>
-      <h>143</h>
+      <x>612</x>
+      <y>135</y>
+      <w>63</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>lt=&lt;..</panel_attributes>
     <additional_attributes>10.0;90.0;50.0;10.0</additional_attributes>
@@ -126,10 +126,10 @@ und mit catch abfangen</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>676</x>
-      <y>442</y>
-      <w>182</w>
-      <h>39</h>
+      <x>810</x>
+      <y>387</y>
+      <w>126</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>RuntimeException</panel_attributes>
     <additional_attributes/>
@@ -137,44 +137,44 @@ und mit catch abfangen</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>624</x>
-      <y>325</y>
-      <w>156</w>
-      <h>143</h>
+      <x>693</x>
+      <y>315</y>
+      <w>189</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;100.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;190.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>858</x>
-      <y>338</y>
-      <w>195</w>
-      <h>52</h>
+      <x>963</x>
+      <y>333</y>
+      <w>135</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>Unchecked Exception
-bg=blue</panel_attributes>
+bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>819</x>
-      <y>377</y>
-      <w>78</w>
-      <h>91</h>
+      <x>909</x>
+      <y>360</y>
+      <w>81</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;..</panel_attributes>
-    <additional_attributes>10.0;50.0;40.0;10.0</additional_attributes>
+    <additional_attributes>10.0;30.0;70.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>663</x>
-      <y>572</y>
-      <w>182</w>
-      <h>39</h>
+      <x>891</x>
+      <y>486</y>
+      <w>126</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>ArithmeticException</panel_attributes>
     <additional_attributes/>
@@ -182,21 +182,21 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>741</x>
-      <y>468</y>
-      <w>39</w>
-      <h>130</h>
+      <x>855</x>
+      <y>405</y>
+      <w>117</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;110.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>910</x>
-      <y>572</y>
-      <w>182</w>
-      <h>39</h>
+      <x>981</x>
+      <y>450</y>
+      <w>126</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>NullPointerException</panel_attributes>
     <additional_attributes/>
@@ -204,21 +204,21 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>754</x>
-      <y>468</y>
-      <w>273</w>
-      <h>130</h>
+      <x>882</x>
+      <y>405</y>
+      <w>171</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;190.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;170.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>299</x>
-      <y>572</y>
-      <w>299</w>
-      <h>39</h>
+      <x>720</x>
+      <y>522</y>
+      <w>207</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>ArrayIndexOutOfBoundsException</panel_attributes>
     <additional_attributes/>
@@ -226,12 +226,80 @@ bg=blue</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>494</x>
-      <y>468</y>
-      <w>260</w>
-      <h>130</h>
+      <x>846</x>
+      <y>405</y>
+      <w>36</w>
+      <h>135</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>180.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;20.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>810</x>
+      <y>270</y>
+      <w>126</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Checked Exception
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>738</x>
+      <y>279</y>
+      <w>90</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>10.0;40.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>387</y>
+      <w>126</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>ParseException</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>414</x>
+      <y>315</y>
+      <w>288</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>300.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>225</x>
+      <y>279</y>
+      <w>135</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Unchecked Exception
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>351</x>
+      <y>288</y>
+      <w>144</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;..</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
