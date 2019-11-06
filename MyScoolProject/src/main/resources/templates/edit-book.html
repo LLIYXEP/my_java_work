@@ -1,7 +1,9 @@
-<div th:insert="parts/header">...</div>
-<body>
+<div th:replace="parts/header">...</div>
 
-	<div class="container s-wide">
+<div th:replace="parts/containerHeader">...</div>
+
+
+	<div class="s-wide">
 		<div class="row">
 			<div class="col-sm-12">
 				<h2>Edit book [[${book.name}]]</h2>
@@ -28,7 +30,6 @@
 		</div>
 	</div>
     
+<div th:replace="parts/containerFooter">...</div>
     
-    
-</body>
-</html>
+<div th:replace="parts/footer">...</div>

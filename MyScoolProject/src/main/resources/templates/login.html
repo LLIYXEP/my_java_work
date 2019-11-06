@@ -1,8 +1,13 @@
-<div th:insert="parts/header">...</div>
-    <body>
-        <div class="container s-wide">
+<div th:replace="parts/header">...</div>
+
+<div th:replace="parts/containerHeader">...</div>
+
+
+        <div class="s-wide">
 			<div class="col-sm-12">
 				<h2>Log in</h2>
+				<div style="width: 350px;" class="alert" th:classappend="${messageType}"  role="alert">[[${{message}}]]</div>
+  
 			</div>
         		<div th:if="${param.error}">
 		            Invalid username and password.
@@ -10,6 +15,7 @@
 		        <div th:if="${param.logout}">
 		            You have been logged out.
 		        </div>
+		      <div class="col-sm-12">
 		        <form th:class="logform" th:action="@{/login}" method="post">
 		        	<div class="form-group">
 					    <label for="firstName">User Name</label>
@@ -21,6 +27,9 @@
 					  </div>
 					  <button type="submit" class="btn btn-primary">Sign In</button>
 		        </form>
+        	</div>
         </div>
-    </body>
-</html>
+
+<div th:replace="parts/containerFooter">...</div>
+
+<div th:replace="parts/footer">...</div>

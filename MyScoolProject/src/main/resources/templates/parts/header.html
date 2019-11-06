@@ -2,59 +2,222 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<style>
-	.error-msg{
-		color: red;
-	}
-	.inputError{
-		border-color: red;
-	}
-	.s-wide{
-		padding: 80px 0;
-	}
-	h2,h1{
-		margin-bottom: 50px;
-	}
-	.regform,.logform,.editUserform,.editBookform,.bookform{
-		width: 350px;
-	}
-</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>Insert title here</title>
+	
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/css/prettyPhoto.css">
+	<link rel="stylesheet" href="/css/price-range.css">
+	<link rel="stylesheet" href="/css/animate.css">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/responsive.css">
+	
+	<!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
 </head>
 <body>
-	<header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Hello [[${#httpServletRequest.remoteUser}]]!</a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
+	
+	
+	<header id="header"><!--header-->
+		<div class="header_top"><!--header_top-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="contactinfo">
+							<ul class="nav nav-pills">
+								<li><a href="#"><i class="fa fa-phone"></i> +3 12 23 88 821</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="social-icons pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header_top-->
 		
-		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		    <ul class="navbar-nav mr-auto">
-		      <li class="nav-item active">
-		        <a class="nav-link" href="/">Home</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="/all-books">All books</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="/add-book">Add book</a>
-		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="/users">Users</a>
-		      </li>
-		    </ul>
-		    <div class="mr-3" sec:authorize="isAnonymous()">
-		    	<a class="btn btn-outline-success my-2 my-sm-0" href="/login">Log In</a>
-		    </div>
-		    <div class="mr-3" sec:authorize="isAnonymous()">
-		    	<a class="btn btn-outline-success my-2 my-sm-0" href="/registration">Register</a>
-		    </div>
-		    <form sec:authorize="isAuthenticated()" class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post">
-		      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Sign Out</button>
-		    </form>
-		  </div>
-		</nav>
-	</header>
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="logo pull-left">
+							<a href="index.html"><img src="images/home/logo.png" width="150px" alt="" /></a><span sec:authorize="isAuthenticated()">Welcome [[${#httpServletRequest.remoteUser}]]!</span>
+						</div>
+						<!-- 
+						<div class="btn-group pull-right">
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+									USA
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">Canada</a></li>
+									<li><a href="#">UK</a></li>
+								</ul>
+							</div>
+							
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+									DOLLAR
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">Canadian Dollar</a></li>
+									<li><a href="#">Pound</a></li>
+								</ul>
+							</div>
+						</div>
+						 -->
+					</div>
+					<div class="col-sm-8">
+						<div class="shop-menu pull-right">
+							<ul class="nav navbar-nav">
+								<!-- <li><a href="#"><i class="fa fa-user"></i> Account</a></li> -->
+								<!-- <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
+								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li sec:authorize="isAnonymous()">
+										<a href="/login"><i class="fa fa-lock"></i> Login</a></li>
+								<li sec:authorize="isAnonymous()">
+										<a href="/registration"><i class="fa fa-lock"></i> Register</a></li>
+								<li sec:authorize="isAuthenticated()">
+									<form  class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post">
+								      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Sign Out</button>
+								    </form>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-middle-->
+	
+		<div class="header-bottom"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="mainmenu pull-left">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li><a href="/" class="active">Home</a></li>
+								<li class="dropdown"><a href="/all-products">Products<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="/all-products">All Products</a></li>
+										<li><a href="/add-product">Add Product</a></li>
+										<li><a href="/categories">Categories</a></li>
+										<li><a href="/categories">Add Category</a></li>
+                                    </ul>
+                                </li>
+								<li class="dropdown"><a href="/all-books">Books<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="/all-books">All books</a></li>
+										<li><a href="/add-book">Add book</a></li>
+                                    </ul>
+                                </li> 
+								<li><a href="/users">Users</a></li>
+								<li><a href="/contact">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3">
+						<div class="search_box pull-right">
+							<input type="text" placeholder="Search"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-bottom-->
+	</header><!--/header-->
+	
+	<!--
+	<section id="slider">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+							<li data-target="#slider-carousel" data-slide-to="1"></li>
+							<li data-target="#slider-carousel" data-slide-to="2"></li>
+						</ol>
+						
+						<div class="carousel-inner">
+							<div class="item active">
+								<div class="col-sm-6">
+									<h1><span>E</span>-SHOPPER</h1>
+									<h2>Free E-Commerce Template</h2>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									<button type="button" class="btn btn-default get">Get it now</button>
+								</div>
+								<div class="col-sm-6">
+									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
+									<img src="images/home/pricing.png"  class="pricing" alt="" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="col-sm-6">
+									<h1><span>E</span>-SHOPPER</h1>
+									<h2>100% Responsive Design</h2>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									<button type="button" class="btn btn-default get">Get it now</button>
+								</div>
+								<div class="col-sm-6">
+									<img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
+									<img src="images/home/pricing.png"  class="pricing" alt="" />
+								</div>
+							</div>
+							
+							<div class="item">
+								<div class="col-sm-6">
+									<h1><span>E</span>-SHOPPER</h1>
+									<h2>Free Ecommerce Template</h2>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									<button type="button" class="btn btn-default get">Get it now</button>
+								</div>
+								<div class="col-sm-6">
+									<img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
+									<img src="images/home/pricing.png" class="pricing" alt="" />
+								</div>
+							</div>
+							
+						</div>
+						
+						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+							<i class="fa fa-angle-left"></i>
+						</a>
+						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+							<i class="fa fa-angle-right"></i>
+						</a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	-->

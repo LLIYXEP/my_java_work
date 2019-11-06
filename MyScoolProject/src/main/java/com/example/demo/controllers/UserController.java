@@ -1,4 +1,4 @@
-package com.example.demo.resources;
+package com.example.demo.controllers;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,7 +27,7 @@ import com.example.demo.repositorys.UserRepository;
 import com.example.demo.services.UserService;
 
 @Controller
-public class UserResource {
+public class UserController {
 	
 	@Autowired
 	PasswordEncoder passwordEncoder;
@@ -48,7 +48,6 @@ public class UserResource {
 		if (bindingResult.hasErrors()) {
 //			Map<String, String> errorsMap = ControllerUtils.getErrors(bindingResult);
 //			model.mergeAttributes(errorsMap);
-//			model.addAttribute(user);
 			model.addAttribute("hasErrors", bindingResult);
 			return "/registration";
 		} else {
@@ -56,7 +55,10 @@ public class UserResource {
 			user.setPassword(passwordEncoder.encode(password));
 			user.setActivationCode(UUID.randomUUID().toString());
 			
+			String encEmail = "******" + user.getEmail().substring(6);
 			
+			model.addAttribute("messageType" , "alert-success");
+			model.addAttribute("message" , "User is successfuly registered, please visit your email - " + encEmail + " to continue the Authentication!");
 			userRepository.save(user);
 			userService.sendMessage(user);
 			return "login";
@@ -67,6 +69,14 @@ public class UserResource {
 	@GetMapping("/activate/{code}")
 	public String activate(Model model, @PathVariable String code) {
 		boolean isActivated = userService.activateUser(code);
+		
+		if (isActivated) {
+			model.addAttribute("messageType", "alert-success");
+			model.addAttribute("message", "User succssesfully activated");
+		} else {
+			model.addAttribute("messageType", "alert-danger");
+			model.addAttribute("message", "Aktivation code is not found");
+		}
 		
 		return "login";
 	}

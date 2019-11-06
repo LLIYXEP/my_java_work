@@ -49,7 +49,7 @@ public class User implements UserDetails {
 	@Size(min = 4, max = 40, message = "Last name must be between {min} and {max} characters")
 	private String lastName;
 	
-	@Range(min = 18, max = 100)
+	@Range(min = 18, max = 100, message = "Sory, but your age must be between 18 and 100 years")
 	@Digits(integer=3, fraction=0, message = "Password must be maximum 3 digits")
 	private Integer age;
 	

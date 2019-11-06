@@ -1,6 +1,9 @@
-<div th:insert="parts/header">...</div>
-<body>
-	<div class="container s-wide">
+<div th:replace="parts/header">...</div>
+
+<div th:replace="parts/containerHeader">...</div>
+
+
+	<div class="s-wide">
 		<div class="row">
 			<div class="col-sm-12">
 				<h2>Edit User with name [[${user.username}]]</h2>
@@ -40,5 +43,7 @@
 			</form>
 		</div>
 	</div>
-</body>
-</html>
+	
+<div th:replace="parts/containerFooter">...</div>
+
+<div th:replace="parts/footer">...</div>

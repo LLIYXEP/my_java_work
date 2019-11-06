@@ -1,4 +1,4 @@
-package com.example.demo.resources;
+package com.example.demo.controllers;
 
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import com.example.demo.repositorys.BookRepository;
 
 
 @Controller
-public class BookResource {
+public class BookController {
 	
 	
 	@Autowired

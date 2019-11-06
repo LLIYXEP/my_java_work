@@ -1,7 +1,8 @@
-<div th:insert="parts/header">...</div>
-<body>
+<div th:replace="parts/header">...</div>
+
+<div th:replace="parts/containerHeader">...</div>
 	
-	<div class="container s-wide">
+	<div class="s-wide">
     	<h2>All users</h2>
     	<table class="table">
 		  <thead>
@@ -29,12 +30,14 @@
 		      <td th:text="${user.email}"></td>
 		      <td th:text="${user.roles}"></td>
 		      <div sec:authorize="hasAuthority('ADMIN')">
-		      <td><a th:href="@{/edit-user/{id}(id=${user.id})}" type="button" class="btn btn-primary btn-sm">Edit</a></td>
+		      <td><a th:href="@{/edit-user/{id}(id=${user.id})}" type="button" class="btn btn-primary edit-btn btn-sm">Edit</a></td>
 		      <td><a th:href="@{/delete-user/{id}(id=${user.id})}" type="button" class="btn btn-danger btn-sm">Delete</a></td>
 		      </div>
 		    </tr>
 		  </tbody>
 		</table>
     </div>
-</body>
-</html>
+ 
+<div th:replace="parts/containerFooter">...</div>
+
+<div th:replace="parts/footer">...</div>

@@ -1,4 +1,4 @@
-package com.example.demo.resources;
+package com.example.demo.controllers;
 
 import java.util.Map;
 import java.util.stream.Collector;
@@ -14,8 +14,8 @@ public class ControllerUtils {
 				fieldError ->  fieldError.getField() + "Error",
 				FieldError::getDefaultMessage
 				);
-		Map<String, String> errorsMap = bindingResult.getFieldErrors().stream().collect(collector);
-		return errorsMap;
+		
+		return bindingResult.getFieldErrors().stream().collect(collector);
 	}
 	
 }
