@@ -23,7 +23,10 @@ public class B06_PassenderCatchBlock {
 			// Hier speziell Behandlung fur ArithmeticException
 			System.out.println("ArithmetikException abgefangen");
 			
-		} catch (Exception e) {
+		} catch (NullPointerException e) {
+			// Hier allgemeine Behandlung fur alle andere Exceptions
+			System.out.println("NullPointerException abgefangen");
+		}  catch (Exception e) {
 			// Hier allgemeine Behandlung fur alle andere Exceptions
 			System.out.println("Exception abgefangen");
 		} 

@@ -40,7 +40,7 @@ class Fiat extends Auto {
 
 class Mazda extends Auto {
 //	void fahren() throws Exception {  // Is-A
-	}
+//	}
 }
 	
 public class B09_UberschriebenUndCheckedExc {
