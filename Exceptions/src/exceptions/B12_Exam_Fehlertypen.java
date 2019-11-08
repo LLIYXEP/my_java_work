@@ -43,7 +43,7 @@ public class B12_Exam_Fehlertypen {
 		
 		
 		/*
-		 * Exception - Kanngeworfen/abgefangen/deklarieren werden
+		 * Exception, RuntimeException - Kanngeworfen/abgefangen/deklarieren werden
 		 * 
 		 * Oft von den Java-Operatoren geworfen (unwarscheinlich von einem Entwickler in seiner Methode mit throw new)
 		 * ClassCastException , NullPointerException, ArrayIndexOutOfBoundsException, ArithmeticException

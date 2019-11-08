@@ -1,11 +1,12 @@
 package tiere;
 
-public class Tier {
 
+
+public class Tier{
+	
 	private String name;
 
 	public Tier(String name) {
-		super();
 		this.name = name;
 	}
 
@@ -13,7 +14,5 @@ public class Tier {
 	public String toString() {
 		return name;
 	}
-	
-	
 	
 }
