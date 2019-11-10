@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +13,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.models.Category;
+import com.example.demo.models.Product;
 import com.example.demo.repositorys.CategoryRepository;
+import com.example.demo.repositorys.ProductsRepository;
 
 @Controller
 public class CategoryController {
+	
+	@Autowired
+	private ProductsRepository productsRepository;
 	
 	@Autowired
 	private CategoryRepository categoryRepository;
@@ -40,6 +47,13 @@ public class CategoryController {
 	public String editCategory(@ModelAttribute Category category) {
 		categoryRepository.save(category);
 		return "redirect:/categories";
+	}
+	
+	@GetMapping("/category/{name}")
+	public String categoryProductsPage(@PathVariable String name, Model model) {
+		Category category = categoryRepository.getByName(name);
+		model.addAttribute("products", category.getProducts());
+		return "categories/category-products";
 	}
 	
 	@PostMapping("/delete-category/{id}")

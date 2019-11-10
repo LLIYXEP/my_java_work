@@ -7,5 +7,7 @@ import com.example.demo.models.Category;
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
 	Category getById(int id);
+
+	Category getByName(String name);
 	
 }

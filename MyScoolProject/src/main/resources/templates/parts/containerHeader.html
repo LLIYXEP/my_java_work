@@ -66,24 +66,9 @@
 								</div>
 							</div>
 							 -->
-							<div class="panel panel-default">
+							<div th:each="category : ${categories}" class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Jeans</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Shirts</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Sneakers</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="/all-books">Books</a></h4>
+									<h4 class="panel-title"><a th:href="@{/category/{name}(name=${category.name})}" th:text="${category.name}">Jeans</a></h4>
 								</div>
 							</div>
 						</div><!--/category-products-->

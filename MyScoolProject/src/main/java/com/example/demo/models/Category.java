@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.demo.repositorys.CategoryRepository;
+
 @Entity
 @Table(name = "categories")
 public class Category {
@@ -27,7 +31,7 @@ public class Category {
 	public String toString() {
 		return name;
 	}
-
+	
 	public Category() {
 		super();
 	}
