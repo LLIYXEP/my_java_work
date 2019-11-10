@@ -1,10 +1,52 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<div th:replace="parts/header">...</div>
 
-</body>
-</html>
+<div th:replace="parts/containerHeader">...</div>
+
+
+<div>
+	<div class="row">
+		<div class="col-sm-12">
+			<h2>All Products</h2>
+			<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Name</th>
+		      <th scope="col">Brand</th>
+		      <th scope="col">Category</th>
+		      <th scope="col">Description</th>
+		      <th scope="col">Price</th>
+		      <th scope="col">Size</th>
+		      <th scope="col">Author</th>
+		      <!-- <div sec:authorize="hasAuthority('ADMIN')"> -->
+		      <th scope="col">Edit</th>
+		      <th scope="col">Delete</th>
+		      <!-- </div> -->
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="product : ${products}">
+		      <th scope="row" th:text="${product.id}"></th>
+		      <td th:text="${product.name}"></td>
+		      <td th:text="${product.brand}"></td>
+		      <td th:text="${product.categories}"></td>
+		      <td th:text="${product.description}"></td>
+		      <td th:text="${product.price}"></td>
+		      <td th:text="${product.size}"></td>
+		      <td th:text="${product.getUserName()}"></td>
+		      <!-- <div sec:authorize="hasAuthority('ADMIN')"> -->
+		      <td><a th:href="@{/products/edit/{id}(id=${product.id})}" type="button" class="btn btn-primary edit-btn btn-sm">Edit</a></td>
+		      <td><a th:href="@{/products/delete/{id}(id=${product.id})}" type="button" class="btn btn-danger btn-sm">Delete</a></td>
+		      <!-- </div> -->
+		    </tr>
+		  </tbody>
+		</table>
+		</div>
+	</div>
+</div>
+
+
+
+<div th:replace="parts/containerFooter">...</div>
+    
+<div th:replace="parts/footer">...</div>

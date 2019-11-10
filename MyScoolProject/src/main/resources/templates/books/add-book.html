@@ -3,12 +3,12 @@
 <div th:replace="parts/containerHeader">...</div>
 
 
-	<div class="s-wide">
+	<div>
 		<div class="row">
 			<div class="col-sm-12">
 				<h2>Add new Book</h2>
 			</div>
-			<form th:class="bookform" th:action="@{/add-book}" th:object="${book}" method="POST">
+			<form th:class="bookform" th:action="@{/books/add}" th:object="${book}" method="POST">
 			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 			  <div class="form-group">
 			    <label for="name">Book Name</label>

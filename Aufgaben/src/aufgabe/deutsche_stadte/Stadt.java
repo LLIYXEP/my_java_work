@@ -3,10 +3,10 @@ package aufgabe.deutsche_stadte;
 public class Stadt {
 
 	private String name;
-	private int  inwohnerzahl;
+	private String  inwohnerzahl;
 	private String bundesland;
 	
-	public Stadt(String name, int inwohnerzahl, String bundesland) {
+	public Stadt(String name, String inwohnerzahl, String bundesland) {
 		super();
 		this.name = name;
 		this.inwohnerzahl = inwohnerzahl;

@@ -13,6 +13,11 @@ public class MainController {
     public String index() {
     	return "index";
     }
+	
+	@GetMapping("/contacts")
+    public String contacts() {
+    	return "contacts";
+    }
     
     @GetMapping("/admin")
     public String admin() {

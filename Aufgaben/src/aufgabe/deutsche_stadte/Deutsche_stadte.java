@@ -11,7 +11,6 @@ import java.util.List;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class Deutsche_stadte {
@@ -31,18 +30,20 @@ public class Deutsche_stadte {
 			
 			Document doc = Jsoup.parse(sb.toString());
 			
-			Elements elementTable = doc.getElementsByClass("table");
+			Elements elementTable = doc.getElementsByClass("mw-datatable");
 			
+//			System.out.println(elementTable.size());
 			Elements elements = elementTable.get(0).getElementsByTag("td");
 			
 			List<Stadt> stadte = new ArrayList<Stadt>();
 			
 			
-			for (int i = 0; i < elements.size(); i++) {
-				
-				stadte.add(new Stadt(elements.get(1), elements.get(12), elements.get(17));
-			}
+//			for (int i = 0; i < elements.size(); i++) {
+//				
+//				stadte.add(new Stadt(elements.get(1).toString(), elements.get(12).toString(), elements.get(17).toString()));
+//			}
 			
+			System.out.println(elements);
 
 			
 		} catch (IOException e) {

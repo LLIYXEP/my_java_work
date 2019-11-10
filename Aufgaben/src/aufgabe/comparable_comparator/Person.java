@@ -1,7 +1,5 @@
 package aufgabe.comparable_comparator;
 
-import java.util.Comparator;
-
 public class Person implements Comparable<Person>{
 
 	private String vorname;

@@ -1,7 +1,6 @@
 package aufgabe.exc_parse_date;
 
 import java.text.DateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.Scanner;
 

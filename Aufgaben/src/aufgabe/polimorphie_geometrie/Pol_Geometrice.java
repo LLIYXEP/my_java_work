@@ -1,7 +1,6 @@
 package aufgabe.polimorphie_geometrie;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Pol_Geometrice {
 

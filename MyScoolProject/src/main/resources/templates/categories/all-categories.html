@@ -1,0 +1,46 @@
+<div th:replace="parts/header">...</div>
+
+<div th:replace="parts/containerHeader">...</div>
+
+
+	<div>
+		<div class="row">
+			<div class="col-sm-12">
+				<h2>All Categories </h2>
+				
+				<table class="table">
+				  <thead>
+				    <tr>
+				      <th scope="col">#</th>
+				      <th scope="col">Name</th>
+				     <!-- <div sec:authorize="hasAuthority('ADMIN')"> -->
+				      <th scope="col">Edit</th>
+				      <th scope="col">Delete</th>
+				      <!-- </div> -->
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr th:each="category : ${categories}">
+				      <th scope="row" th:text="${category.id}"></th>
+				      <td th:text="${category.name}"></td>
+				      <!-- <div sec:authorize="hasAuthority('ADMIN')"> -->
+				      <td class="editCategoryFormTd">
+				      	<form th:class="editCategoryForm" th:action="@{/edit-category/{id}(id=${category.id})}" th:object="${category}" method="POST" >
+				      	 <input type="text" class="form-control" th:field="*{name}"><button  type="submit" class="btn btn-primary edit-btn btn-sm">Edit</button>
+				      </form>
+				      </td>
+				      <td>
+				      <form th:class="deleteCategoryForm" th:action="@{/delete-category/{id}(id=${category.id})}" th:object="${category}" method="POST" >
+				      	 <button  type="submit" class="btn btn-danger btn-sm">Delete</button>
+				      </form>
+				     <!--  </div> -->
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+<div th:replace="parts/containerFooter">...</div>
+
+<div th:replace="parts/footer">...</div>

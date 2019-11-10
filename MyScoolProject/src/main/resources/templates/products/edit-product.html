@@ -1,10 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<div th:replace="parts/header">...</div>
 
-</body>
-</html>
+<div th:replace="parts/containerHeader">...</div>
+
+
+<div>
+	<div class="row">
+		<div class="col-sm-12">
+			<h2>Edit Product</h2>
+			<form th:class="editProductform" action="#" th:action="@{/products/edit/{id}(id=${product.id})}" th:object="${product}" method="POST">
+			  <div class="form-group">
+			    <label for="name">Product Name</label>
+			    <input type="text" class="form-control" th:field="*{name}">
+			  </div>
+			  <div class="form-group">
+			    <label for="name">Product Brand</label>
+			    <input type="text" class="form-control" th:field="*{brand}">
+			  </div>
+			  <div class="form-group">
+			    <label for="name">Product Category</label>
+			  	<select class="form-control" th:field="*{categories}"  multiple="multiple">
+				    <option th:each="category : ${categories}"
+				    		th:field="*{categories}"
+				    		th:selected="${product.contains(category)}"
+				    		th:value="${category.id}"
+				    		th:text="${category.name}"
+				    >Part name</option>
+
+				</select>
+			  </div>
+			  <div class="form-group">
+			    <label for="name">Product Description</label>
+			    <input type="text" class="form-control" th:field="*{description}">
+			  </div>
+			  <div class="form-group">
+			    <label for="name">Product Price</label>
+			    <input type="text" class="form-control" th:field="*{price}">
+			  </div>
+			  <div class="form-group">
+			    <label for="name">Product Size</label>
+			    <input type="text" class="form-control" th:field="*{size}">
+			  </div>
+			  <button type="submit" class="btn btn-primary">Save</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
+<div th:replace="parts/containerFooter">...</div>
+    
+<div th:replace="parts/footer">...</div>
