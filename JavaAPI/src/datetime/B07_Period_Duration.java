@@ -15,7 +15,9 @@ public class B07_Period_Duration {
 		
 		Period p = Period.between(startDateInclusive, endDateExclusive);
 		System.out.format("%s, %s, %s %n",p.getDays(), p.getMonths(), p.getYears()); // 2,0,0
-		System.out.println(p.getDays()); // 2
+		System.out.println(p.minusDays(1).getDays()); // 1
+		System.out.println(p.plusDays(12).getDays()); // 14
+		System.out.println(p.withDays(12).getDays()); // 12
 		
 		/*
 		 * Duration
