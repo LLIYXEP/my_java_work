@@ -1,9 +1,14 @@
 package com.example.demo.controllers;
 
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,22 +19,29 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.example.demo.models.Category;
 import com.example.demo.models.Product;
 import com.example.demo.models.User;
 import com.example.demo.repositorys.CategoryRepository;
 import com.example.demo.repositorys.ProductsRepository;
+import com.example.demo.services.ProductService;
 
 @Controller
 @RequestMapping("/products")
 public class ProductsController {
 	
 	@Autowired
+	private ProductService productService;
+	
+	@Autowired
 	private CategoryRepository categoryRepository;
 	
 	@Autowired
 	private ProductsRepository productsRepository;
+	
+	@Value("${upload.path}")
+	private String uploadPath;
 
 	@GetMapping("/add")
 	public String addProductPage(@ModelAttribute Product product, Model model) {
@@ -38,7 +50,25 @@ public class ProductsController {
 	}
 	
 	@PostMapping("/add")
-	public String addProduct(@AuthenticationPrincipal User user, @Valid @ModelAttribute Product product, BindingResult bindingResult, Model model) {
+	public String addProduct(@AuthenticationPrincipal User user, 
+			@Valid @ModelAttribute Product product, 
+			BindingResult bindingResult, 
+			Model model,
+			@RequestParam("imageName") MultipartFile image) throws IllegalStateException, IOException {
+		
+		if (image != null && !image.getOriginalFilename().isEmpty()) {
+			File uploadDir = new File(uploadPath);
+			if (!uploadDir.exists()) {
+				uploadDir.mkdir();
+			}
+			
+			String uuidFile = UUID.randomUUID().toString();
+			String resultFilename = uuidFile + "." + image.getOriginalFilename();
+			
+			image.transferTo(new File(uploadPath + "/" + resultFilename));
+			product.setImageName(resultFilename);
+		}
+		
 		product.setAuthor(user);
 		productsRepository.save(product);
 		return "redirect:/products/list";

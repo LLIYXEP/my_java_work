@@ -53,6 +53,7 @@ public class CategoryController {
 	public String categoryProductsPage(@PathVariable String name, Model model) {
 		Category category = categoryRepository.getByName(name);
 		model.addAttribute("products", category.getProducts());
+		model.addAttribute("category", category);
 		return "categories/category-products";
 	}
 	

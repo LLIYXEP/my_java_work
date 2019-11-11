@@ -6,7 +6,7 @@
 	<div>
 		<div class="row">
 			<div class="col-sm-12">
-				<h2>Add Category </h2>
+				<h2 class="title text-center">Add Category </h2>
 				
 				<form th:class="categoryForm" th:action="@{/add-category}" th:object="${category}" method="POST">
 					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />

@@ -6,7 +6,7 @@
 	<div>
 		<div class="row">
 			<div class="col-sm-12">
-				<h2>Edit book [[${book.name}]]</h2>
+				<h2 class="title text-center">Edit book [[${book.name}]]</h2>
 			</div>
 			<form th:class="editBookform" action="#" th:action="@{/books/edit/{id}(id=${book.id})}" th:object="${book}" method="POST">
 			  <div class="form-group">

@@ -6,8 +6,9 @@
 <div>
 	<div class="row">
 		<div class="col-sm-12">
-			<h2>Edit Product</h2>
+			<h2 class="title text-center">Edit Product</h2>
 			<form th:class="editProductform" action="#" th:action="@{/products/edit/{id}(id=${product.id})}" th:object="${product}" method="POST">
+				<input type="hidden" class="form-control" th:field="*{author}">
 			  <div class="form-group">
 			    <label for="name">Product Name</label>
 			    <input type="text" class="form-control" th:field="*{name}">
