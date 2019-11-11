@@ -6,6 +6,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jsoup"/>
 	<classpathentry kind="lib" path="D:/Eclipse Projects/Git/my_java_work/Dev/lib/jsoup-1.12.1.jar" sourcepath="D:/Eclipse Projects/Git/my_java_work/Dev/lib/jsoup-1.12.1-sources.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="jar:file:/D:/Eclipse%20Projects/Git/my_java_work/Dev/lib/jsoup-1.12.1-javadoc.jar!/"/>
