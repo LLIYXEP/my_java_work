@@ -22,16 +22,6 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		Animal animal = new Animal();
-		
-		animal.m1();
-		
-		Test dog = new Test();
-		System.out.println(x);
-		dog.m1();
-		System.out.println(x);
-		dog.m1();
-		System.out.println(x);
 	}
 }
 
