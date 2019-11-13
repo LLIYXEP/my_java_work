@@ -10,7 +10,7 @@
   
 			</div>
         		<div th:if="${param.error}">
-		            Invalid username and password.
+		            Invalid username or password.
 		        </div>
 		        <div th:if="${param.logout}">
 		            You have been logged out.
@@ -18,8 +18,8 @@
 		      <div class="col-sm-12">
 		        <form th:class="logform" th:action="@{/login}" method="post">
 		        	<div class="form-group">
-					    <label for="username">User Name</label>
-					    <input type="text" class="form-control" name="username">
+					    <label for="email">Email</label>
+					    <input type="email" class="form-control" name="email">
 					  </div>
 		        	<div class="form-group">
 					    <label for="firstName">Password</label>

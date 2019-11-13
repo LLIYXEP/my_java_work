@@ -29,11 +29,11 @@ public class UserService implements UserDetailsService{
 	private UserRepository userRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByUsername(username);
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		User user = userRepository.findByEmail(email);
 		
-		if (user == null) {
-            throw new UsernameNotFoundException("User not found");
+		if (user == null || user.isActive() == false) {
+            throw new UsernameNotFoundException("User not found or you must visit your Email to continue verification!");
         }
 		
 		return user;

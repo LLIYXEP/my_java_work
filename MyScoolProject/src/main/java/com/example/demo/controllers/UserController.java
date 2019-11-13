@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 import java.util.UUID;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -15,7 +13,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -60,6 +57,7 @@ public class UserController {
 			
 			model.addAttribute("messageType" , "alert-success");
 			model.addAttribute("message" , "User is successfuly registered, please visit your email - " + encEmail + " to continue the Authentication!");
+			
 			userRepository.save(user);
 			userService.sendMessage(user);
 			return "login";
@@ -68,7 +66,8 @@ public class UserController {
 
 	
 	@GetMapping("/activate/{code}")
-	public String activate(Model model, @PathVariable String code) {
+	public String activate(@ModelAttribute User user, @PathVariable String code, Model model) {
+		
 		boolean isActivated = userService.activateUser(code);
 		
 		if (isActivated) {
