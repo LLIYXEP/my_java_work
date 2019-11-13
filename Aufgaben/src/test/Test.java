@@ -14,8 +14,10 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		System.out.println("fgdsfg121211212");
+		String s1 = "test";
+		String s2 = "test";
 		
+		System.out.println("test" == "test");
 		
 	}
 }

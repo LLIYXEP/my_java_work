@@ -2557,3 +2557,11 @@ h2,h1{
 		width: 350px;
 }
 
+.logform .btn-info{
+	background-color: #FE980F;
+	border-color: #FE980F;
+}
+
+.logform .btn-success{
+	margin-left: 20px;
+}

@@ -18,14 +18,15 @@
 		      <div class="col-sm-12">
 		        <form th:class="logform" th:action="@{/login}" method="post">
 		        	<div class="form-group">
-					    <label for="firstName">User Name</label>
+					    <label for="username">User Name</label>
 					    <input type="text" class="form-control" name="username">
 					  </div>
 		        	<div class="form-group">
 					    <label for="firstName">Password</label>
 					    <input type="password" class="form-control" name="password">
 					  </div>
-					  <button type="submit" class="btn btn-primary">Sign In</button>
+					  <button type="submit" class="btn btn-info">Sign In</button>
+					  <a href="/registration" type="submit" class="btn btn-success">Rigistration</a>
 		        </form>
         	</div>
         </div>

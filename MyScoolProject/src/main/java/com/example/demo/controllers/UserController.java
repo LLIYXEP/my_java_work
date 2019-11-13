@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -115,5 +116,39 @@ public class UserController {
 
 		userService.saveRole(role, age, id, allParams);
 		return "redirect:/users";
+	}
+	
+	@GetMapping("/my-profile")
+	public String myProfilePage(@AuthenticationPrincipal User user, Model model) {
+		
+		model.addAttribute("user", user);
+		model.addAttribute("roles", user.getRoles());
+		return "my-profile";
+	}
+	
+	@PostMapping("/my-profile")
+	public String myProfile(@ModelAttribute User user, @RequestParam String password, @RequestParam String password2, Model model) {
+		if (password.isEmpty() && password2.isEmpty()) {
+			user.setPassword(user.getPassword());
+			model.addAttribute("messageType", "alert-success");
+			model.addAttribute("message", "Profile saved successfully");
+		} 
+		
+		if (password.equals(password2)) {
+			user.setPassword(passwordEncoder.encode(password));
+			model.addAttribute("messageType", "alert-success");
+			model.addAttribute("message", "Profile saved successfully. Your new password " + password);
+		}
+		
+		if (!password.equals(password2) && (password.isEmpty() || password2.isEmpty())) {
+			user.setPassword(user.getPassword());
+			model.addAttribute("messageType", "alert-danger");
+			model.addAttribute("message", "Different New and Confirmation Passwords");
+			return "my-profile";
+		}
+		
+		userRepository.save(user);
+		
+		return "my-profile";
 	}
 }

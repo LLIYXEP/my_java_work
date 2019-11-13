@@ -32,7 +32,7 @@
 			  </div>
 
 
-			   	<tr th:each="role : ${roles}" sec:authorize="hasAuthority('ADMIN')">
+			   	<tr th:each="role : ${roles}" sec:authorize="hasAuthority('USER')">
 			    	
 			     <label><input type="checkbox" th:name="${role}" th:value="${role}">[[${role}]]</label>
 			    	
