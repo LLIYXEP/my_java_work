@@ -9,8 +9,7 @@
 				<h2 class="title text-center">Welcome [[${user.username}]] to your profile !</h2>
 				<div style="width: 350px;" class="alert" th:classappend="${messageType}"  role="alert">[[${{message}}]]</div>
 			</div>
-			<form th:class="editUserform" action="#" th:action="@{/my-profile}" th:object="${user}" method="POST">
-			<input type="hidden" class="form-control" name="id" id="id" th:value="${user.id}">
+			<form th:class="editUserform" action="#" th:action="@{/my-profile/{id}(id = ${user.id})}" th:object="${user}" method="POST">
 			  <div class="form-group">
 			    <label for="firstName">User first name</label>
 			    <input type="text" class="form-control" th:field="*{username}">

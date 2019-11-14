@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.models.Role;
 import com.example.demo.models.User;
@@ -117,37 +118,44 @@ public class UserController {
 		return "redirect:/users";
 	}
 	
-	@GetMapping("/my-profile")
-	public String myProfilePage(@AuthenticationPrincipal User user, Model model) {
+	@GetMapping("/my-profile/{id}")
+	public String myProfilePage(@PathVariable Integer id, Model model) {
 		
-		model.addAttribute("user", user);
-		model.addAttribute("roles", user.getRoles());
+		User userDB = userRepository.getById(id);
+		
+		model.addAttribute("user", userDB);
+		model.addAttribute("roles", userDB.getRoles());
 		return "my-profile";
 	}
 	
-	@PostMapping("/my-profile")
-	public String myProfile(@ModelAttribute User user, @RequestParam String password, @RequestParam String password2, Model model) {
-		if (password.isEmpty() && password2.isEmpty()) {
-			user.setPassword(user.getPassword());
-			model.addAttribute("messageType", "alert-success");
-			model.addAttribute("message", "Profile saved successfully");
-		} 
+	@PostMapping("/my-profile/{id}")
+	public String myProfile(@ModelAttribute User user, @PathVariable Integer id, @RequestParam String password, @RequestParam String password2, Model model, RedirectAttributes attributes) {
+		
+		User passUser = userRepository.getById(id);
 		
 		if (password.equals(password2)) {
-			user.setPassword(passwordEncoder.encode(password));
-			model.addAttribute("messageType", "alert-success");
-			model.addAttribute("message", "Profile saved successfully. Your new password " + password);
+			if (password.isEmpty() && password2.isEmpty()) {
+				user.setPassword(passUser.getPassword());
+				attributes.addFlashAttribute("messageType", "alert-success");
+				attributes.addFlashAttribute("message", "Profile saved successfully ");
+			} else {
+				user.setPassword(passwordEncoder.encode(password));
+				attributes.addFlashAttribute("messageType", "alert-success");
+				attributes.addFlashAttribute("message", "Profile saved successfully. Your new password " + password);
+			}
+			
 		}
 		
-		if (!password.equals(password2) && (password.isEmpty() || password2.isEmpty())) {
-			user.setPassword(user.getPassword());
-			model.addAttribute("messageType", "alert-danger");
-			model.addAttribute("message", "Different New and Confirmation Passwords");
-			return "my-profile";
+		if (password.equals(password2) == false) {
+			user.setPassword(passUser.getPassword());
+			attributes.addFlashAttribute("messageType", "alert-danger");
+			attributes.addFlashAttribute("message", "Different New and Confirmation Passwords");
 		}
 		
+		
+		user.setActive(true);
 		userRepository.save(user);
 		
-		return "my-profile";
+		return "redirect:/my-profile/"+user.getId();
 	}
 }
