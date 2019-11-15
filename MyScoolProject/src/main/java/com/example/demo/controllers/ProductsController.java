@@ -90,14 +90,42 @@ public class ProductsController {
 	}
 	
 	@PostMapping("/edit/{id}")
-	public String editProduct(@PathVariable Integer id, @ModelAttribute Product product) {
+	public String editProduct(@RequestParam("image") MultipartFile image, @PathVariable Integer id, @ModelAttribute Product product) throws IllegalStateException, IOException {
+		if (image.getSize() < 1) {
+			Product productDB = productsRepository.getById(id);
+			product.setImageName(productDB.getImageName());
+		}
+		if (image != null && !image.getOriginalFilename().isEmpty()) {
+			
+			Product productDB = productsRepository.getById(id);
+			File file = new File(uploadPath + "/" + productDB.getImageName());
+			file.delete();
+			
+			File uploadDir = new File(uploadPath);
+			if (!uploadDir.exists()) {
+				uploadDir.mkdir();
+			}
+			
+			String uuidFile = UUID.randomUUID().toString();
+			String resultFilename = uuidFile + "." + image.getOriginalFilename();
+			
+			image.transferTo(new File(uploadPath + "/" + resultFilename));
+			product.setImageName(resultFilename);
+			
+			
+		} 
+		
 		productsRepository.save(product);
+		
 		return "redirect:/products/list";
 	}
+		
 	
 	@GetMapping("/delete/{id}")
 	public String deleteProduct(@PathVariable Integer id) {
 		Product product = productsRepository.getById(id);
+		File file = new File(uploadPath + "/" + product.getImageName());
+		file.delete();
 		productsRepository.delete(product);
 		return "redirect:/products/list";
 	}

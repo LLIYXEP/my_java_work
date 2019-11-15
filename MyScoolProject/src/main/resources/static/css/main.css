@@ -2565,3 +2565,7 @@ h2,h1{
 .logform .btn-success{
 	margin-left: 20px;
 }
+
+.edit-product-img-wrapp img{
+	width: 100px;
+}

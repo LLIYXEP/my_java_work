@@ -6,8 +6,8 @@ public class B05_return {
 
 		testReturn(22);
 		testReturn(-33);
-		testReturn(0);
-		
+//		testReturn(0);
+//		
 	}
 
 	static void testReturn(int x) {

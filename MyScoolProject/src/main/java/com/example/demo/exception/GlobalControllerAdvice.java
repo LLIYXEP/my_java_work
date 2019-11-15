@@ -1,4 +1,4 @@
-package com.example.demo.configs;
+package com.example.demo.exception;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

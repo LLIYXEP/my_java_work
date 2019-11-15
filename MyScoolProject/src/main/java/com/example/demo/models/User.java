@@ -20,6 +20,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
@@ -62,8 +63,20 @@ public class User implements UserDetails {
 	@Column(name = "email", unique = true)
 	@UniqueUseremail (message = "User with this Email already exists!")
 	private String email;
+	
 	private String activationCode;
 	
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+	private Cart cart;
+	
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+
 	public String getActivationCode() {
 		return activationCode;
 	}

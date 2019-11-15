@@ -20,13 +20,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.demo.models.Cart;
 import com.example.demo.models.Role;
 import com.example.demo.models.User;
+import com.example.demo.repositorys.CartsRepository;
 import com.example.demo.repositorys.UserRepository;
 import com.example.demo.services.UserService;
 
 @Controller
 public class UserController {
+	@Autowired
+	CartsRepository cartRepository;
 	
 	@Autowired
 	PasswordEncoder passwordEncoder;
@@ -59,8 +63,15 @@ public class UserController {
 			model.addAttribute("messageType" , "alert-success");
 			model.addAttribute("message" , "User is successfuly registered, please visit your email - " + encEmail + " to continue the Authentication!");
 			
+			Cart cart = new Cart();
+			cart.setUser(user);
+			
+			
 			userRepository.save(user);
+			cartRepository.save(cart);
 			userService.sendMessage(user);
+			
+
 			return "login";
 		}
 	}
@@ -92,7 +103,10 @@ public class UserController {
 	@GetMapping("/delete-user/{id}")
 	public String delUser(@PathVariable Integer id, Model model) {
 		User user = userRepository.getById(id);
+		Cart cart = user.getCart();
+		cartRepository.delete(cart);
 		userRepository.delete(user);
+		
 		return "redirect:/users";
 	}
 	
@@ -151,7 +165,6 @@ public class UserController {
 			attributes.addFlashAttribute("messageType", "alert-danger");
 			attributes.addFlashAttribute("message", "Different New and Confirmation Passwords");
 		}
-		
 		
 		user.setActive(true);
 		userRepository.save(user);
