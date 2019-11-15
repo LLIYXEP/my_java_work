@@ -95,11 +95,11 @@ public class User implements UserDetails {
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Book> books = new ArrayList<Book>();
 	
-	public String contains(Role role) {
+	public boolean contains(Role role) {
 		if (roles.contains(role)) {
-			return "checked";
+			return true;
 		} else {
-			return "";
+			return false;
 		}
 		
 	}

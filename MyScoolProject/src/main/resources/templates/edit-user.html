@@ -34,7 +34,7 @@
 
 			   	<tr th:each="role : ${roles}" sec:authorize="hasAuthority('USER')">
 			    	
-			     <label><input type="checkbox" th:name="${role}" th:value="${role}" >[[${role}]]</label> <!-- th:checked="${user.contains(role)}" -->
+			     <label><input type="checkbox" th:name="${role}" th:value="${role}" th:checked="${user.contains(role)}">[[${role}]]</label> <!-- th:checked="${user.contains(role)}" -->
 			    	
 			   </tr><br>
 
