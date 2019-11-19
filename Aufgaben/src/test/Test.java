@@ -17,7 +17,7 @@ public class Test {
 		String s1 = "test";
 		String s2 = "test";
 		
-		System.out.println("1" == "test212");
+		System.out.println("1" == "Andrei");
 		
 	}
 }

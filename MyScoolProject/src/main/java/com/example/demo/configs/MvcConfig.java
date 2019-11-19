@@ -15,6 +15,9 @@ import org.springframework.webflow.mvc.servlet.FlowHandlerMapping;
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
 	
+	 @Autowired
+	 private WebFlowConfig webFlowConfig;
+	
 	@Value("${upload.path}")
 	private String uploadPath;
 	
@@ -37,16 +40,17 @@ public class MvcConfig implements WebMvcConfigurer {
 
 //    _______________________________________________________
 
-    @Autowired
-    private WebFlowConfig webFlowConfig;
+   
 
 
     @Bean
-    public InternalResourceViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("templates/");
-        viewResolver.setSuffix(".html");
-        return viewResolver;
+	  public InternalResourceViewResolver viewResolver() {
+
+	     InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+//	     	viewResolver.setViewClass(JstlView.class);
+	        viewResolver.setPrefix("/WEB-INF/jsp/");
+	        viewResolver.setSuffix(".jsp");
+	        return viewResolver;
     }
 
     @Bean
