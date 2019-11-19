@@ -30,8 +30,4 @@ public class MainController {
     	return "user";
     }
 
-    @GetMapping("/test")
-    public ModelAndView test() {
-    	return new ModelAndView("welcomePage", "welcomeMessage", "Welcome to Spring MVC");
-    }
 }
