@@ -10,16 +10,17 @@ class  Animal{
 
 public class Test {
 	
-	
+	static int x = 12;
 	
 	public static void main(String[] args) {
 		
-		String s1 = "test";
-		String s2 = "test";
-		
-		System.out.println("1" == "Andrei");
-		
+		go();
+		System.out.println(x);
+	}
+	
+	static void go() {
+		int x = 20;
 	}
 }
-
+https://xpadro.com/2013/04/communication-in-spring-webflow-2.html
 
