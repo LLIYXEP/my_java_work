@@ -1,18 +1,23 @@
-<!DOCTYPE html>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-    <h2>Click to activate ${car.username}</h2>
+<div th:replace="parts/header">...</div>
+
+<div th:replace="parts/containerHeader">...</div>
+
+
+	<div>
+		<div class="row">
+			<div class="col-sm-12">
+    			<h2>Click to activate [[${user.username}]]</h2>
+    		</div>
+    		
+    		<form method="post" action="${flowExecutionUrl}">
+		    	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		        <input type="submit" name="_eventId_activate" value="activate" />
+		        <input type="submit" name="_eventId_cancel" value="cancel" />
+		    </form>
+    		
+    	</div>
+    </div>
  
-    <form method="post" action="${flowExecutionUrl}">
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-        <input type="submit" name="_eventId_activate" value="activate" />
-        <input type="submit" name="_eventId_cancel" value="cancel" />
-    </form>
-</body>
-</html>
+<div th:replace="parts/containerFooter">...</div>
+
+<div th:replace="parts/footer">...</div>

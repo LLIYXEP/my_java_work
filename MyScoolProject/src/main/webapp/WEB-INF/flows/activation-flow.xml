@@ -3,16 +3,20 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow.xsd">
-    
-<var name="car" class="com.example.demo.models.User"/>
+   
+   
+<var name="user" class="com.example.demo.models.User"/> 
+
            
+<!-- 
 <on-start>
-	  <evaluate expression="userRepository.getById(1)" result="flowScope.user"/>
-	</on-start>
+	<evaluate expression="userRepository.getById(1)" result="flowScope.user"/>
+</on-start>
+ -->
 	
 	
                           
-<view-state id="activation" view="activation">
+<view-state id="activation" view="activation"  model="user">
     <transition on="activate" to="success"/>
     <transition on="cancel" to="failure"/>
 </view-state>

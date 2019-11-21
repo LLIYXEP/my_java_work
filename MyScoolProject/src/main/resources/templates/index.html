@@ -2,12 +2,36 @@
 
 <div th:replace="parts/containerHeader">...</div>
 
-	<div>
-		<div class="row">
-			<h1 class="title text-center">My Java E-Shop</h1>
+
+<div>
+	<div class="row">
+		<div class="col-sm-12">
+			<h2 class="title text-center">All Products</h2>
 		</div>
+		<div class="col-sm-4" th:each="product : ${products}">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center">
+											<h4>[[${product.name}]]</h4>
+											<img th:src="'/img/' + ${product.imageName}" alt=""> 
+											<h2>[[${product.price()}]] $</h2>
+											<p>[[${product.brand}]]</p>
+											<a sec:authorize="isAuthenticated()" th:href="@{/add-to-card/{id}/{userId}(id = ${product.id}, userId = ${authUser.id})}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+											<a sec:authorize="isAnonymous()" href="/login" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+										
+								</div>
+								<div class="choose">
+									<ul class="nav nav-pills nav-justified">
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
 	</div>
+</div>
+
 
 <div th:replace="parts/containerFooter">...</div>
-
+    
 <div th:replace="parts/footer">...</div>

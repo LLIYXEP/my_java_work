@@ -48,6 +48,18 @@ public class Product {
 	@JoinColumn(name = "user_id")
 	private User author;
 	
+	@ManyToOne (fetch =  FetchType.EAGER)
+	private Cart cart;
+	
+	public Cart getCart() {
+		return cart;
+	}
+
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+
 	private String imageName;
 	
 	public String getImageName() {
