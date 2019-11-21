@@ -1,13 +1,16 @@
 package com.example.demo.controllers;
 
+import java.io.File;
 import java.security.Principal;
 import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.models.Cart;
@@ -20,6 +23,9 @@ import com.example.demo.repositorys.UserRepository;
 @Controller
 public class CartController {
 	
+	@Value("${upload.path}")
+	private String uploadPath;
+	
 	@Autowired
 	ProductsRepository productsRepository;
 	
@@ -29,9 +35,9 @@ public class CartController {
 	@Autowired
 	UserRepository userRepository;
 
-	@GetMapping("/cart/{name}")
-	public String cartPage(@PathVariable String name, Model model) {
-		Cart cart = cartsRepository.getByUser(userRepository.getByUsername(name));
+	@GetMapping("/cart/{id}")
+	public String cartPage(@PathVariable int id, Model model) {
+		Cart cart = cartsRepository.getByUser(userRepository.getById(id));
 		model.addAttribute("orderProducts", cart.getProducts());
 		return "cart";
 	}
@@ -51,5 +57,12 @@ public class CartController {
 		cart.setProducts(products);
 		cartsRepository.save(cart);
 		return "redirect:/";
+	}
+	
+	@GetMapping("/remove-from-cart/{id}")
+	public String removeFromCart(@PathVariable int id, @ModelAttribute Cart cart) {
+		Product product = productsRepository.getById(id);
+		cart.getProducts().remove(product);
+		return "cart";
 	}
 }

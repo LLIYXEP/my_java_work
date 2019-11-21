@@ -9,6 +9,14 @@
 /*scroll to top*/
 
 $(document).ready(function(){
+	$.CookiesMessage({
+		messageBg:"#FE980F",
+		messageColor:"#000",
+		messageLinkColor:"#fff",
+		infoEnable:false,
+		closeEnable:false, 
+	});
+
 	$(function () {
 		$.scrollUp({
 	        scrollName: 'scrollUp', // Element ID

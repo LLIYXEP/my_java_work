@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="/css/animate.css">
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/css/responsive.css">
+	<link rel="stylesheet" href="/css/cookies-message.min.css">
 	
 	
 	<!--[if lt IE 9]>
@@ -95,7 +96,7 @@
 							<ul class="nav navbar-nav">
 								<!-- <li><a href="#"><i class="fa fa-user"></i> Account</a></li> -->
 								<!-- <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
-								<li sec:authorize="isAuthenticated()"><a th:href="@{/cart/{name}(name = ${authUser.username})}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+								<li sec:authorize="isAuthenticated()"><a th:href="@{/cart/{id}(id = ${authUser.id})}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 								<li sec:authorize="isAuthenticated()"><a th:href="@{/my-profile/{id}(id = ${authUser.id})}"><i class="fa fa-user"></i> My Profile</a></li>
 								<li sec:authorize="isAnonymous()">
 										<a href="/login"><i class="fa fa-lock"></i> Login</a></li>

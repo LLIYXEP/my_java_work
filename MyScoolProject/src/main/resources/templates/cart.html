@@ -23,16 +23,16 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
+						<tr th:each="orderProduct : ${orderProducts}">
 							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a>
+								<a href=""><img class="cart-img" th:src="'/img/' + ${orderProduct.imageName}" alt=""></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
+								<h4><a href="/">[[${orderProduct.name}]] , [[${orderProduct.brand}]]</a></h4>
+								<p>Web ID: [[${orderProduct.id}]]</p>
 							</td>
 							<td class="cart_price">
-								<p>$59</p>
+								<p>[[${orderProduct.price}]] $</p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
@@ -45,7 +45,7 @@
 								<p class="cart_total_price">$59</p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+								<a class="cart_quantity_delete" th:href="@{/remove-from-cart/{id}(id = ${orderProduct.id})}"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
 					</tbody>
@@ -57,65 +57,11 @@
 	<section id="do_action">
 		<div class="container">
 			<div class="heading">
-				<h3>What would you like to do next?</h3>
-				<p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+				<h3>Check your order</h3>
+				<p>Tax is not included in the price of goods.</p>
 			</div>
 			<div class="row">
-				<div class="col-sm-6">
-					<div class="chose_area">
-						<ul class="user_option">
-							<li>
-								<input type="checkbox">
-								<label>Use Coupon Code</label>
-							</li>
-							<li>
-								<input type="checkbox">
-								<label>Use Gift Voucher</label>
-							</li>
-							<li>
-								<input type="checkbox">
-								<label>Estimate Shipping &amp; Taxes</label>
-							</li>
-						</ul>
-						<ul class="user_info">
-							<li class="single_field">
-								<label>Country:</label>
-								<select>
-									<option>United States</option>
-									<option>Bangladesh</option>
-									<option>UK</option>
-									<option>India</option>
-									<option>Pakistan</option>
-									<option>Ucrane</option>
-									<option>Canada</option>
-									<option>Dubai</option>
-								</select>
-								
-							</li>
-							<li class="single_field">
-								<label>Region / State:</label>
-								<select>
-									<option>Select</option>
-									<option>Dhaka</option>
-									<option>London</option>
-									<option>Dillih</option>
-									<option>Lahore</option>
-									<option>Alaska</option>
-									<option>Canada</option>
-									<option>Dubai</option>
-								</select>
-							
-							</li>
-							<li class="single_field zip-field">
-								<label>Zip Code:</label>
-								<input type="text">
-							</li>
-						</ul>
-						<a class="btn btn-default update" href="">Get Quotes</a>
-						<a class="btn btn-default check_out" href="">Continue</a>
-					</div>
-				</div>
-				<div class="col-sm-6">
+			<div class="col-sm-6">
 					<div class="total_area">
 						<ul>
 							<li>Cart Sub Total <span>$59</span></li>
@@ -123,10 +69,45 @@
 							<li>Shipping Cost <span>Free</span></li>
 							<li>Total <span>$61</span></li>
 						</ul>
-							<a class="btn btn-default update" href="">Update</a>
-							<a class="btn btn-default check_out" href="">Check Out</a>
+							<a class="btn btn-default check_out" href="">Update</a>
 					</div>
 				</div>
+			<div class="col-sm-6">
+					<div class="chose_area">
+						<ul>
+						<h4>Delivery Adress</h4>
+							<form th:class="bookform"  method="POST">
+						<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+						  <div class="form-group">
+						    <label for="name">First Name</label>
+						    <input type="text" class="form-control"   placeholder="Book Name">
+						  </div>
+						  <div class="form-group">
+						    <label for="name">Last Name</label>
+						    <input type="text" class="form-control"   placeholder="Book Name">
+						  </div>
+						  <div class="form-group">
+						    <label for="name">City</label>
+						    <input type="text" class="form-control"   placeholder="Book Name">
+						  </div>
+						  <div class="form-group">
+						    <label for="name">Street</label>
+						    <input type="text" class="form-control"   placeholder="Book Name">
+						  </div>
+						  <div class="form-group">
+						    <label for="name">Index</label>
+						    <input type="text" class="form-control"   placeholder="Book Name">
+						  </div>
+						  <div class="form-group">
+						    <label for="name">Telephone</label>
+						    <input type="text" class="form-control"   placeholder="Book Name">
+						  </div>
+						  <button type="submit" class="btn btn-primary">Check Out</button>
+						</form>
+						</ul>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 	</section>
