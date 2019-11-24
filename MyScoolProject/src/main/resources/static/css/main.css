@@ -2573,3 +2573,12 @@ h2,h1{
 .cart-img{
 	width: 100px;
 }
+
+.nav-justified{
+	display: flex;
+	flex-direction: column;
+}
+.nav-justified li{
+	width: 100%;
+	height: 30px;
+}

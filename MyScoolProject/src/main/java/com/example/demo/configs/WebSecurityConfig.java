@@ -9,9 +9,11 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+
+import com.example.demo.handlers.MyCustomLoginSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -22,6 +24,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	private UserDetailsService userDetailsService;
+	
+	@Bean
+	public AuthenticationSuccessHandler defaultSuccessUrl() {
+	    return new MyCustomLoginSuccessHandler("/yourdefaultsuccessurl");
+	}
 	
 	// Authorization
     @Override
@@ -37,6 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .formLogin()
                 .loginPage("/login")
                 .usernameParameter("email")
+                .successHandler(defaultSuccessUrl())
                 .permitAll()
                 .and()
             .rememberMe()

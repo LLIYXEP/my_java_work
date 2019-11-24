@@ -13,7 +13,7 @@
 								<div class="single-products">
 										<div class="productinfo text-center">
 											<h4>[[${product.name}]]</h4>
-											<img th:src="'/img/' + ${product.imageName}" alt=""> 
+											<a th:href="@{products/product/{id}/details (id = ${product.id})}"><img th:src="'/img/' + ${product.imageName}" alt=""> </a>
 											<h2>[[${product.price()}]] $</h2>
 											<p>[[${product.brand}]]</p>
 											<a sec:authorize="isAuthenticated()" th:href="@{/add-to-card/{id}/{userId}(id = ${product.id}, userId = ${authUser.id})}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -23,7 +23,8 @@
 								</div>
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist(under development)</a></li>
+										<li><a th:href="@{products/product/{id}/details (id = ${product.id})}"><i class="fa fa-search-plus"></i>More details</a></li>
 									</ul>
 								</div>
 							</div>

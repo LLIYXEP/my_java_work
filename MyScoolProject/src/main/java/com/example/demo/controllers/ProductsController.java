@@ -129,4 +129,11 @@ public class ProductsController {
 		productsRepository.delete(product);
 		return "redirect:/products/list";
 	}
+	
+	@GetMapping("/product/{id}/details")
+	public String productDetails(@PathVariable Integer id, Model model) {
+		Product product = productsRepository.getById(id);
+		model.addAttribute("product", product);
+		return "products/product-details";
+	}
 }
