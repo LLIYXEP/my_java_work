@@ -9,6 +9,7 @@
 /*scroll to top*/
 
 $(document).ready(function(){
+	
 	$.CookiesMessage({
 		messageBg:"#FE980F",
 		messageColor:"#000",
@@ -33,6 +34,24 @@ $(document).ready(function(){
 	        scrollImg: false, // Set true to use image
 	        activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
 	        zIndex: 2147483647 // Z-Index for the overlay
-		});
+		});	
 	});
+	
+	$(".cart_quantity_up").click(function(){
+		$(".cart_quantity_input").val( function(i, oldval) {
+		    return parseInt( oldval, 10) + 1;
+		});
+		var price = $(".cart_total_price").attr("value");
+		var summ = price * $(".cart_quantity_input").val();
+		$(".cart_total_price").html(summ + '.0 $');
+	})
+	
+	$(".cart_quantity_down").click(function(){
+		$(".cart_quantity_input").val( function(i, oldval) {
+		    return parseInt( oldval, 10) - 1;
+		});
+		var price = $(".cart_total_price").attr("value");
+		var summ = price * $(".cart_quantity_input").val();
+		$(".cart_total_price").html(summ + '.0 $');
+	})
 });

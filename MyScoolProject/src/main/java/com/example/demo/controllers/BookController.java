@@ -32,7 +32,8 @@ public class BookController {
 	
 	
 	@GetMapping("/add")
-    public String addBook(@ModelAttribute Book book) {
+    public String addBook(@ModelAttribute Book book, Model model) {
+		model.addAttribute("pageTitle", "Add new Book");
         return "books/add-book";
     }
 	
@@ -54,6 +55,7 @@ public class BookController {
 	@GetMapping(value = "/all")
 	public String getAll(Model model){
 		model.addAttribute("books", bookRepository.findAll());
+		model.addAttribute("pageTitle", "All Books");
 		return "books/all-books";
 	}
 	
@@ -61,6 +63,7 @@ public class BookController {
 	public String editBookPage(@PathVariable Integer id, Model model) {
 		Book book = bookRepository.getById(id);
 		model.addAttribute("book" , book);
+		model.addAttribute("pageTitle", "Edit Book");
 		return "books/edit-book";
 	}
 	

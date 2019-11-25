@@ -45,11 +45,9 @@
 								<img th:src="@{/images/product-details/new.jpg}" class="newarrival" alt="">
 								<h2>[[${product.name}]]</h2>
 								<p>Web ID: [[${product.id}]]</p>
-								<img th:src="@{/images/product-details/rating.png}" alt="">
+								<img th:src="@{/images/product-details/rating.png}" alt=""> <br>
 								<span>
 									<span>[[${product.price}]] $</span>
-									<label>Quantity:</label>
-									<input type="text" value="3">
 									<a sec:authorize="isAuthenticated()" th:href="@{/add-to-card/{id}/{userId}(id = ${product.id}, userId = ${authUser.id})}" type="button" class="btn btn-fefault cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 									<a sec:authorize="isAnonymous()" href="/login" type="button" class="btn btn-fefault cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 								</span>

@@ -29,11 +29,13 @@ public class CategoryController {
 	@GetMapping("/categories")
 	public String categories(@ModelAttribute Category category, Model model) {
 		model.addAttribute("categories", categoryRepository.findAll());
+		model.addAttribute("pageTitle", "All Categories");
 		return "categories/all-categories";
 	}
 	
 	@GetMapping("/add-category")
-	public String addCategoryPage(@ModelAttribute Category category) {
+	public String addCategoryPage(@ModelAttribute Category category, Model model) {
+		model.addAttribute("pageTitle", "Add Category");
 		return "categories/add-category";
 	}
 	
@@ -54,6 +56,7 @@ public class CategoryController {
 		Category category = categoryRepository.getByName(name);
 		model.addAttribute("products", category.getProducts());
 		model.addAttribute("category", category);
+		model.addAttribute("pageTitle", "Edit Category");
 		return "categories/category-products";
 	}
 	

@@ -32,17 +32,17 @@
 								<p>Web ID: [[${orderProduct.id}]]</p>
 							</td>
 							<td class="cart_price">
-								<p>[[${orderProduct.price}]] $</p>
+								<p class="product_price">[[${orderProduct.price}]] $</p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
+									<a class="cart_quantity_up"> + </a>
 									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+									<a class="cart_quantity_down"> - </a>
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
+								<p th:value="${orderProduct.price}" class="cart_total_price">[[${orderProduct.price}]] $</p>
 							</td>
 							<td class="cart_delete">
 								<a class="cart_quantity_delete" th:href="@{/remove-from-cart/{id}(id = ${orderProduct.id})}"><i class="fa fa-times"></i></a>
@@ -61,17 +61,7 @@
 				<p>Tax is not included in the price of goods.</p>
 			</div>
 			<div class="row">
-			<div class="col-sm-6">
-					<div class="total_area">
-						<ul>
-							<li>Cart Sub Total <span>$59</span></li>
-							<li>Eco Tax <span>$2</span></li>
-							<li>Shipping Cost <span>Free</span></li>
-							<li>Total <span>$61</span></li>
-						</ul>
-							<a class="btn btn-default check_out" href="">Update</a>
-					</div>
-				</div>
+			
 			<div class="col-sm-6">
 					<div class="chose_area">
 						<ul>
@@ -107,7 +97,17 @@
 						</ul>
 					</div>
 				</div>
-				
+				<div class="col-sm-6">
+					<div class="total_area">
+						<ul>
+							<li>Cart Sub Total <span>$59</span></li>
+							<li>Eco Tax <span>$2</span></li>
+							<li>Shipping Cost <span>Free</span></li>
+							<li>Total <span>$61</span></li>
+						</ul>
+							<a class="btn btn-default check_out" href="">Update</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>

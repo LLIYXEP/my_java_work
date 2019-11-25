@@ -42,7 +42,8 @@ public class UserController {
 	UserRepository userRepository;
 	
 	@GetMapping("/registration")
-	public String getRegPage(@ModelAttribute User user) {
+	public String getRegPage(@ModelAttribute User user, Model model) {
+		model.addAttribute("pageTitle", "Registration page");
 		return "registration";
 	}
 	
@@ -89,7 +90,7 @@ public class UserController {
 			model.addAttribute("messageType", "alert-danger");
 			model.addAttribute("message", "Aktivation code is not found");
 		}
-		
+		model.addAttribute("pageTitle", "Activation page");
 		return "login";
 	}
 	
@@ -97,6 +98,7 @@ public class UserController {
 	public String getUsersPage(Model model) {
 		model.addAttribute("users", userRepository.findAll());
 		model.addAttribute("roles", Role.values());
+		model.addAttribute("pageTitle", "All Users");
 		return "users";
 	}
 	
@@ -114,6 +116,7 @@ public class UserController {
 	public String getEditUserPage(@PathVariable Integer id, Model model) {
 		model.addAttribute("user", userRepository.getById(id));
 		model.addAttribute("roles", Role.values());
+		model.addAttribute("pageTitle", "Edit User");
 		return "edit-user";
 	}
 	
@@ -139,6 +142,7 @@ public class UserController {
 		
 		model.addAttribute("user", userDB);
 		model.addAttribute("roles", userDB.getRoles());
+		model.addAttribute("pageTitle", "Profile page");
 		return "my-profile";
 	}
 	

@@ -46,6 +46,7 @@ public class ProductsController {
 	@GetMapping("/add")
 	public String addProductPage(@ModelAttribute Product product, Model model) {
 		model.addAttribute("categories", categoryRepository.findAll());
+		model.addAttribute("pageTitle", "Add new Product");
 		return "products/add-product";
 	}
 	
@@ -77,6 +78,7 @@ public class ProductsController {
 	@GetMapping("/list")
 	public String listProductsPage(Model model) {
 		model.addAttribute("products", productsRepository.findAll() );
+		model.addAttribute("pageTitle", "All Products");
 		return "products/all-products";
 	}
 	
@@ -86,6 +88,7 @@ public class ProductsController {
 		Product product = productsRepository.getById(id);
 		model.addAttribute(product);
 		model.addAttribute("categories", categoryRepository.findAll());
+		model.addAttribute("pageTitle", "Edit Product");
 		return "products/edit-product";
 	}
 	
@@ -135,6 +138,7 @@ public class ProductsController {
 		Product product = productsRepository.getById(id);
 		model.addAttribute("comments", product.getComments());
 		model.addAttribute("product", product);
+		model.addAttribute("pageTitle", "Product details");
 		return "products/product-details";
 	}
 }
