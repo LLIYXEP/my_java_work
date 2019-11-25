@@ -3,10 +3,12 @@ package com.example.demo.controllers;
 import java.io.File;
 import java.security.Principal;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -60,9 +62,11 @@ public class CartController {
 	}
 	
 	@GetMapping("/remove-from-cart/{id}")
-	public String removeFromCart(@PathVariable int id, @ModelAttribute Cart cart) {
+	public String removeFromCart(@PathVariable int id, @AuthenticationPrincipal User user) {
 		Product product = productsRepository.getById(id);
+		Cart cart = cartsRepository.getByUser(user);
 		cart.getProducts().remove(product);
-		return "cart";
+		cartsRepository.save(cart);
+		return "redirect:/cart/"+user.getId();
 	}
 }

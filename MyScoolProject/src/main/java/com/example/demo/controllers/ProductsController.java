@@ -133,6 +133,7 @@ public class ProductsController {
 	@GetMapping("/product/{id}/details")
 	public String productDetails(@PathVariable Integer id, Model model) {
 		Product product = productsRepository.getById(id);
+		model.addAttribute("comments", product.getComments());
 		model.addAttribute("product", product);
 		return "products/product-details";
 	}

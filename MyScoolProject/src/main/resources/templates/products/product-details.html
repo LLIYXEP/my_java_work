@@ -42,10 +42,10 @@
 						</div>
 						<div class="col-sm-7">
 							<div class="product-information"><!--/product-information-->
-								<img src="images/product-details/new.jpg" class="newarrival" alt="">
+								<img th:src="@{/images/product-details/new.jpg}" class="newarrival" alt="">
 								<h2>[[${product.name}]]</h2>
 								<p>Web ID: [[${product.id}]]</p>
-								<img src="images/product-details/rating.png" alt="">
+								<img th:src="@{/images/product-details/rating.png}" alt="">
 								<span>
 									<span>[[${product.price}]] $</span>
 									<label>Quantity:</label>
@@ -56,7 +56,7 @@
 								<p><b>Availability:</b> In Stock</p>
 								<p><b>Condition:</b> New</p>
 								<p><b>Brand:</b> [[${product.brand}]]</p>
-								<a href=""><img src="images/product-details/share.png" class="share img-responsive" alt=""></a>
+								<a href=""><img th:src="@{/images/product-details/share.png}" class="share img-responsive" alt=""></a>
 							</div><!--/product-information-->
 						</div>
 					</div>
@@ -74,7 +74,7 @@
 								<div class="col-sm-12">
 									<div class="product-descripton-section">
 										<h4>Product description</h4>
-										<p>The LeBron 17 harnesses LeBron's strength and speed with containment and support for all-court domination. It features a lightweight mix of knit and heat-molded yarns that give each one a durable look and feel. Combined cushioning provides LeBron with the impact support and responsive energy return he needs to power through the long season.</p>
+										<p>[[${product.description}]]</p>
 									</div>
 								</div>
 								
@@ -85,24 +85,27 @@
 							
 							<div class="tab-pane fade active in" id="reviews">
 								<div class="col-sm-12">
-									<ul>
-										<li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
-										<li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
-										<li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
+									
+									<div class="comment" th:each="comment : ${comments}">
+										<ul>
+										<li><a href=""><i class="fa fa-user"></i>[[${comment.user.getFirstName()}]]</a></li>
+										<li><a href=""><i class="fa fa-clock-o"></i>[[${comment.time}]]</a></li>
+										<li><a href=""><i class="fa fa-calendar-o"></i>[[${comment.dateFormat()}]]</a></li>
 									</ul>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+									<p>[[${comment.message}]]</p>
+									</div>
+									
 									<p><b>Write Your Review</b></p>
 									
-									<form action="#">
-										<span>
-											<input type="text" placeholder="Your Name">
-											<input type="email" placeholder="Email Address">
-										</span>
-										<textarea name=""></textarea>
-										<b>Rating: </b> <img src="images/product-details/rating.png" alt="">
-										<button type="button" class="btn btn-default pull-right">
+									<form th:action="@{/comment/{id}/add(id = ${product.id})}" th:object="${comment}" method="POST">
+										<textarea name="message"></textarea>
+										<b>Rating: </b> <img th:src="@{/images/product-details/rating.png}" alt="">
+										<button sec:authorize="isAuthenticated()" type="submit" class="btn btn-default pull-right">
 											Submit
 										</button>
+										<a href="/login" sec:authorize="isAnonymous()" type="button" class="btn btn-default pull-right">
+											Submit
+										</a>
 									</form>
 								</div>
 							</div>
@@ -121,7 +124,7 @@
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="images/home/recommend1.jpg" alt="">
+													<img th:src="@{/images/home/recommend1.jpg}" alt="">
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
 													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -133,7 +136,7 @@
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="images/home/recommend2.jpg" alt="">
+													<img th:src="@{/images/home/recommend2.jpg}" alt="">
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
 													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -145,7 +148,7 @@
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="images/home/recommend3.jpg" alt="">
+													<img th:src="@{/images/home/recommend3.jpg}" alt="">
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
 													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -159,7 +162,7 @@
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="images/home/recommend1.jpg" alt="">
+													<img th:src="@{/images/home/recommend1.jpg}" alt="">
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
 													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -171,7 +174,7 @@
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="images/home/recommend2.jpg" alt="">
+													<img th:src="@{/images/home/recommend2.jpg}" alt="">
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
 													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -183,7 +186,7 @@
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="images/home/recommend3.jpg" alt="">
+													<img th:src="@{/images/home/recommend3.jpg}" alt="">
 													<h2>$56</h2>
 													<p>Easy Polo Black Edition</p>
 													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>

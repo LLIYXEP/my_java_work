@@ -2,6 +2,7 @@ package datetime;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class B06_DateTimeFormatter {
@@ -30,6 +31,8 @@ public class B06_DateTimeFormatter {
 		testPattern("EEEE");
 		testPattern("EEEEE");
 		
+		testPattern2("HH:mm:ss");
+		
 		testPattern("d.MMMM");
 		
 		System.out.println("Heute ist der " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("d.MMMM")));
@@ -43,6 +46,15 @@ public class B06_DateTimeFormatter {
 		String text = date.format(fmt);
 		System.out.format("mit pattern %s: %s %n", pattern , text);	
 	}
+	
+	static void testPattern2(String pattern) {
+		LocalTime date = LocalTime.now();
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern(pattern);
+		String text = date.format(fmt);
+		System.out.format("mit pattern %s: %s %n", pattern , text);	
+	}
+	
+	
 	
 	
 }
