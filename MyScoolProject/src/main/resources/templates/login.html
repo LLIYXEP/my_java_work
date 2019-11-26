@@ -8,14 +8,17 @@
 				<div style="width: 350px;" class="alert" th:classappend="${messageType}"  role="alert">[[${{message}}]]</div>
   
 			</div>
-        		<div th:if="${param.error}">
+        		
+		      <div class="col-sm-12">
+		      <div th:if="${param.error}" style="width: 350px;" class="alert alert-danger"  role="alert">
 		            Invalid username or password.
 		        </div>
-		        <div th:if="${param.logout}">
+		        <div sec:authorize="isAnonymous()" th:if="${param.logout}" style="width: 350px;" class="alert alert-success"  role="alert">
 		            You have been logged out.
 		        </div>
-		      <div class="col-sm-12">
-		        <form th:class="logform" th:action="@{/login}" method="post">
+		      <div sec:authorize="isAuthenticated()" style="width: 350px;" class="alert alert-success"  role="alert">You are successfully logged in</div>
+		      
+		        <form sec:authorize="isAnonymous()" th:class="logform" th:action="@{/login}" method="post">
 		        	<div class="form-group">
 					    <label for="email">Email</label>
 					    <input type="email" class="form-control" name="email">

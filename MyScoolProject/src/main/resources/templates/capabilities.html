@@ -1,16 +1,106 @@
 <div th:replace="parts/header">...</div>
 
-<div th:replace="parts/containerHeader">...</div>
 
-<div>
+<div class="container">
 	<div class="row">
 		<div class="col-sm-12">
-			<h2 class="title text-center">Contacts</h2>
+			<h2 class="title text-center">Capabilities</h2>
+		</div>
+		<div class="col-sm-6 roles-tables">
+			<h4>Admin can</h4>
+			<table class="table">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Action</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>Give Roles</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">2</th>
+			      <td>Add/Edit/Delete Category</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">3</th>
+			      <td>Add/Edit/Delete Product</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">4</th>
+			      <td>Add/Delete Products in Cart</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">5</th>
+			      <td>Add/Edit/Delete Comment</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">6</th>
+			      <td>Add/Edit/Delete Book</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">7</th>
+			      <td>Edit/Delete Users</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">8</th>
+			      <td>Edit Profile</td>
+			    </tr>
+			  </tbody>
+			</table>
+
+		</div>
+		
+		<div class="col-sm-6 roles-tables">
+			<h4>User can</h4>
+			<table class="table">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Action</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>Add Book</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">2</th>
+			      <td>Add Comment</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">3</th>
+			      <td>Add/Delete Products in Cart</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">4</th>
+			      <td>Edit Profile</td>
+			    </tr>
+			  </tbody>
+			</table>
+			<h4>Guest can</h4>
+			<table class="table">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Action</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>Guest can only visit some pages</td>
+			    </tr>
+			    <tr>
+			  </tbody>
+			</table>
 		</div>
 	</div>
 </div>
 
 
-<div th:replace="parts/containerFooter">...</div>
     
 <div th:replace="parts/footer">...</div>
