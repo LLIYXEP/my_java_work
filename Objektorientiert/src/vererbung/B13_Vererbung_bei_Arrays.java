@@ -15,10 +15,10 @@ static class Doz extends Person{};
 		
 //		float[] a3 = {1, 2, 3};
 //		print(a3);
-//		
+		
 //		double[] a4 = {1.1, 2.2, 3.3};
 //		print(a4);
-//		
+		
 //		Object[] obj = {a3, a4};
 //		print2(obj);
 		

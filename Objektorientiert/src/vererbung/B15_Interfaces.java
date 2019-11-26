@@ -46,7 +46,7 @@ public class B15_Interfaces {
 		zumLaufenBringen(dozent);
 		
 //		Lauffaehig var = new Auto(); //CF -  Auto is kein Lauffaehig
-		Lauffaehig var = new PKW(); //CF -  Auto is kein Lauffaehig
+		Lauffaehig var = new PKW(); 
 		
 		
 	}
