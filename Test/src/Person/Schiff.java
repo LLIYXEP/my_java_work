@@ -1,5 +1,7 @@
 package Person;
 
+import test.Zadan;
+
 public class Schiff {
 	
 	private String name;
@@ -13,4 +15,5 @@ public class Schiff {
 		return "Schiff " + name;
 	}
 	
+	Zadan z =
 }
