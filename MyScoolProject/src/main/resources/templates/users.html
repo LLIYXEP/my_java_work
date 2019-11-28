@@ -14,7 +14,7 @@
 		      <th scope="col">Books</th>
 		      <th scope="col">E-mail</th>
 		      <th scope="col">Role</th>
-		      <div sec:authorize="hasAuthority('USER')">
+		      <div sec:authorize="hasAuthority('ADMIN')">
 		      <th scope="col">Edit</th>
 		      <th scope="col">Delete</th>
 		      </div>
@@ -29,7 +29,7 @@
 		      <td th:text="${user.books}"></td>
 		      <td th:text="${user.email}"></td>
 		      <td th:text="${user.roles}"></td>
-		      <div sec:authorize="hasAuthority('USER')">
+		      <div sec:authorize="hasAuthority('ADMIN')">
 		      <td><a th:href="@{/edit-user/{id}(id=${user.id})}" type="button" class="btn btn-primary edit-btn btn-sm">Edit</a></td>
 		      <td><a th:href="@{/delete-user/{id}(id=${user.id})}" type="button" class="btn btn-danger btn-sm">Delete</a></td>
 		      </div>

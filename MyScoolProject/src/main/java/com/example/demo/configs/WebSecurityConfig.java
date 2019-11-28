@@ -37,9 +37,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/books/**", "/registration", "/users","/activate/{\\d+}","/css/**", "/js/**", "/fonts/**", "/images/**", "/contacts", "/products/list", "/categories", "/category/{\\d+}").permitAll()
+                .antMatchers("/", "/books/**", "/registration", "/users","/activate/{\\d+}","/css/**", "/js/**", "/fonts/**", "/images/**", "/contacts", "/products/list", "/category/{\\d+}").permitAll()
 //                .antMatchers("/user").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/admin", "/edit-user/**", "/edit-book/**", "/delete-user/{\\d+}", "/delete-book/{\\d+}", "/add-category").hasAuthority("USER")
+                .antMatchers("/admin", "/edit-user/**", "/edit-book/**", "/delete-user/{\\d+}", "/delete-book/{\\d+}", "/add-category", "/categories", "/products/add").hasAuthority("ADMIN")
 //                .antMatchers("/", "/all-books", "/add-book").hasRole("USER")
 //                .anyRequest().authenticated()
                 .and()

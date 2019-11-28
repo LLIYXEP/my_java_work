@@ -1,21 +1,22 @@
 package test;
 
-import java.io.IOException;
+import java.util.*;
+
+
+
 
 
 
 public class Zadan {
 
-	public int test = 1;
-
-
-
 
 	public static void main(String[] args) {
 		
-
-	
-
+		String[] str = new String[5];
+		str[4] = null;
+		for (String string : str) {
+			System.out.println(string.toUpperCase());
+		}
 
 	}
 }

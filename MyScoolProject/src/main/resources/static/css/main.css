@@ -2642,3 +2642,9 @@ h2,h1{
     border: none;
     cursor: pointer;
 }
+
+.msg-wrap{
+	display: flex;
+    justify-content: center;
+}
+}
