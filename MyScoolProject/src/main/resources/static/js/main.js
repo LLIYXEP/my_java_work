@@ -37,21 +37,36 @@ $(document).ready(function(){
 		});	
 	});
 	
+
+	
 	$(".cart_quantity_up").click(function(){
-		$(".cart_quantity_input").val( function(i, oldval) {
+		$(this).parent().find($(".cart_quantity_input")).val( function(i, oldval) {
 		    return parseInt( oldval, 10) + 1;
 		});
-		var price = $(".cart_total_price").attr("value");
-		var summ = price * $(".cart_quantity_input").val();
-		$(".cart_total_price").html(summ + '.0 $');
+		$(this).parent().find($(".cart_quantity_input")).attr("value", (parseInt($(this).parent().find($(".cart_quantity_input")).attr("value")) + 1));
+		var price = parseInt($(this).parent().parent().parent().find($(".cart_price")).find($(".product_price")).attr("size"));
+		var summ = price * $(this).parent().find($(".cart_quantity_input")).val();
+		$(this).parent().parent().parent().find($(".cart_total")).find($(".product_total_price")).html(summ + '.0 $').attr("value", summ);
 	})
 	
 	$(".cart_quantity_down").click(function(){
-		$(".cart_quantity_input").val( function(i, oldval) {
-		    return parseInt( oldval, 10) - 1;
-		});
-		var price = $(".cart_total_price").attr("value");
-		var summ = price * $(".cart_quantity_input").val();
-		$(".cart_total_price").html(summ + '.0 $');
+//		if ($(".cart_quantity_input").val() > 0) {
+//			$(".cart_quantity_input").val( function(i, oldval) {
+//			    return parseInt( oldval, 10) - 1;
+//			});
+//			$(".cart_quantity_input").attr("value", (parseInt($(".cart_quantity_input").attr("value")) - 1));
+//			var price = parseInt($(".product_price").attr("size"));
+//			var summ = price * $(".cart_quantity_input").val();
+//			$(".product_total_price").html(summ + '.0 $').attr("value", summ);
+//		}
+		if ($(this).parent().find($(".cart_quantity_input")).val() > 0) {
+			$(this).parent().find($(".cart_quantity_input")).val( function(i, oldval) {
+			    return parseInt( oldval, 10) - 1;
+			});
+			$(this).parent().find($(".cart_quantity_input")).attr("value", (parseInt($(this).parent().find($(".cart_quantity_input")).attr("value")) - 1));
+			var price = parseInt($(this).parent().parent().parent().find($(".cart_price")).find($(".product_price")).attr("size"));
+			var summ = price * $(this).parent().find($(".cart_quantity_input")).val();
+			$(this).parent().parent().parent().find($(".cart_total")).find($(".product_total_price")).html(summ + '.0 $').attr("value", summ);
+		}
 	})
 });

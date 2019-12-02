@@ -12,13 +12,9 @@ public class B02_AutosSortieren {
 		
 		@Override
 		public int compareTo(Auto a) {
-			int erg = hersteller.compareTo(a.hersteller);
 			
-			if ( erg == 0) {
-				erg = baujahr - a.baujahr;
-			}
 			
-			return erg;
+			return a.baujahr - baujahr;
 		}
 
 		public Auto(int baujahr, String hersteller) {
