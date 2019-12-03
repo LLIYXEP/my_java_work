@@ -1,22 +1,32 @@
 package test;
 
-import java.util.*;
+interface I1{
+	default int a() {return 1;};
+}
+interface I2{
+	default int a() {return 2;};
+}
 
+class Test{
+	
+}
 
+public class Zadan extends Test implements I1, I2{
 
-
-
-
-public class Zadan {
-
+	public int a() {return 3;};
 
 	public static void main(String[] args) {
 		
-		String[] str = new String[5];
-		str[4] = null;
-		for (String string : str) {
-			System.out.println(string.toUpperCase());
+		Zadan zadan = new Zadan();
+		Test test = new Test();
+		if (zadan instanceof Test) {
+			System.out.println("dfdf");
 		}
-
+		
+		
+		
+	}
+	void go() {
+		System.out.println(a());
 	}
 }
