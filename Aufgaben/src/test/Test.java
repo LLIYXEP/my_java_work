@@ -16,7 +16,7 @@ public class Test {
 	}
 	
 	void go() {
-		Test2.as();
+		System.out.println("asasasas");
 	}
 	
 }
