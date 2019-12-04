@@ -1,5 +1,8 @@
 package test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 interface I1{
 	default int a() {return 1;};
 }
@@ -12,9 +15,11 @@ class Test{
 }
 
 public class Zadan{
+	
 
 	public static void main(String[] args) {
 	
-		System.out.println(121212);
+
+
 	}
 }
