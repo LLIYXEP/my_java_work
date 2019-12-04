@@ -18,10 +18,10 @@
 		      <th scope="col">Price</th>
 		      <th scope="col">Size</th>
 		      <th scope="col">Author</th>
-		      <!-- <div sec:authorize="hasAuthority('ADMIN')"> -->
+		      <div sec:authorize="hasAuthority('ADMIN')">
 		      <th scope="col">Edit</th>
 		      <th scope="col">Delete</th>
-		      <!-- </div> -->
+		      </div>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -34,10 +34,10 @@
 		      <td th:text="${product.price}"></td>
 		      <td th:text="${product.size}"></td>
 		      <td th:text="${product.getUserName()}"></td>
-		      <!-- <div sec:authorize="hasAuthority('ADMIN')"> -->
+		      <div sec:authorize="hasAuthority('ADMIN')">
 		      <td><a th:href="@{/products/edit/{id}(id=${product.id})}" type="button" class="btn btn-primary edit-btn btn-sm">Edit</a></td>
 		      <td><a th:href="@{/products/delete/{id}(id=${product.id})}" type="button" class="btn btn-danger btn-sm">Delete</a></td>
-		      <!-- </div> -->
+		      </div>
 		    </tr>
 		  </tbody>
 		</table>

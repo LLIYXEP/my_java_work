@@ -4,8 +4,8 @@ package com.example.demo.models;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -22,6 +22,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.annotations.Type;
 
 
 @Entity
@@ -44,6 +46,7 @@ public class Product {
 	private Set<Category> categories = new HashSet<Category>();
 
 	@Lob
+	@Type(type = "text")
 	@Column
 	private String description;
 	
