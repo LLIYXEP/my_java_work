@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>Order your Taco creation!</h3>
+	<form method="POST" th:object="${order}" th:action="@{/orders}">
+		<div th:if="${#fields.hasErrors()}">
+			<span class="validationError">
+				Please correct the problems below and resubmit.
+			</span>
+		</div>
+		
+		<h3>Delivery my order to...</h3>
+		<lable for="name">Name: </lable>
+		<input type="text" th:field="*{name}">
+		<span class="validationError" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+			Name Error
+		</span>
+		</br>
+		
+		<lable for="street">Street: </lable>
+		<input type="text" th:field="*{street}">
+		<span class="validationError" th:if="${#fields.hasErrors('street')}" th:errors="*{street}">
+			Name Error
+		</span>
+		</br>
+		
+		<lable for="city">City: </lable>
+		<input type="text" th:field="*{city}">
+		<span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">
+			Name Error
+		</span>
+		</br>
+		
+		<lable for="state">State: </lable>
+		<input type="text" th:field="*{state}">
+		<span class="validationError" th:if="${#fields.hasErrors('state')}" th:errors="*{state}">
+			Name Error
+		</span>
+		</br>
+		
+		<lable for="zip">Zip: </lable>
+		<input type="text" th:field="*{zip}">
+		<span class="validationError" th:if="${#fields.hasErrors('zip')}" th:errors="*{zip}">
+			Name Error
+		</span>
+		</br>
+		
+		<lable for="ccNumber">ccNumber: </lable>
+		<input type="text" th:field="*{ccNumber}">
+		<span class="validationError" th:if="${#fields.hasErrors('ccNumber')}" th:errors="*{ccNumber}">
+			Name Error
+		</span>
+		</br>
+		
+		<lable for="ccExpiration">ccExpiration: </lable>
+		<input type="text" th:field="*{ccExpiration}">
+		<span class="validationError" th:if="${#fields.hasErrors('ccExpiration')}" th:errors="*{ccExpiration}">
+			Name Error
+		</span>
+		</br>
+		
+		<lable for="ccCVV">ccCVV: </lable>
+		<input type="text" th:field="*{ccCVV}">
+		<span class="validationError" th:if="${#fields.hasErrors('ccCVV')}" th:errors="*{ccCVV}">
+			Name Error
+		</span>
+		</br>
+		
+		
+	<button type="submit">Submit Order</button>
+	</form>
+</body>
+</html>
