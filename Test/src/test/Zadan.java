@@ -11,22 +11,10 @@ class Test{
 	
 }
 
-public class Zadan extends Test implements I1, I2{
-
-	public int a() {return 3;};
+public class Zadan{
 
 	public static void main(String[] args) {
-		
-		Zadan zadan = new Zadan();
-		Test test = new Test();
-		if (zadan instanceof Test) {
-			System.out.println("dfdf");
-		}
-		
-		
-		
-	}
-	void go() {
-		System.out.println(a());
+	
+		System.out.println(121212);
 	}
 }
