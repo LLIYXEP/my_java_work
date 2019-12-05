@@ -2,24 +2,20 @@ package test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
-interface I1{
-	default int a() {return 1;};
-}
-interface I2{
-	default int a() {return 2;};
+class Bar{
+	static int size=2;
 }
 
-class Test{
+
+public class Zadan {
+
 	
-}
-
-public class Zadan{
-	
-
 	public static void main(String[] args) {
-	
+		
+		
+		
+		}
 
-
-	}
 }
