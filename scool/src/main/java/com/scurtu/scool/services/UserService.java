@@ -15,13 +15,10 @@ public class UserService implements UserDetailsService {
 	
 	@Autowired
 	private UserRepository userRepository;
-	
-	@Autowired
-    private PasswordEncoder passwordEncoder;
 
 	@Override
-	public UserDetails loadUserByUsername(String password) throws UsernameNotFoundException {
-		User user = userRepository.findByPassword(password);
+	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
+		User user = userRepository.findByName(name);
 
 		if (user == null) {
             throw new UsernameNotFoundException("User not found.");
